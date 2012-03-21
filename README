@@ -1,0 +1,5 @@
+Makefilecreator (mfc) is a programm, that searches for all codefiles in the current (or a given) directory and creates a valid makefile, that contains all dependencies.
+
+If you are using a sane organisation, you might allready be able to use it. However, improvements will be done in the future, as there are still some not implemented features, I have in mind.
+
+
