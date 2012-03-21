@@ -21,8 +21,7 @@ filetype analyse_file(path file){
 	else return OTHER;
 }
 
-pair<list<path>,list<path>> get_code_files(path rootdir,settings &S){
-	pair<list<path>,list<path>> returndata;
+void get_code_files(path rootdir,settings &S){
 	recursive_directory_iterator it(rootdir);
 	while(it!=recursive_directory_iterator()){
 		debug("Checking filetype of "+path(*it).string(),3);
@@ -33,15 +32,14 @@ pair<list<path>,list<path>> get_code_files(path rootdir,settings &S){
 		}
 		switch(analyse_file(*it)){
 			case HEADER:
-				returndata.first.push_back(*it);
+				S.header_files.push_back(*it);
 				break;
 			case IMPL:
-				returndata.second.push_back(*it);
+				S.implementation_files.push_back(*it);
 				break;
 			case OTHER:
 				break;
 		}
 		++it;
 	}
-	return returndata;
 }

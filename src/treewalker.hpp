@@ -27,6 +27,6 @@ enum filetype{
 
 filetype analyse_file(path file);
 
-pair<list<path>,list<path>> get_code_files(path rootdir, settings &S);
+void get_code_files(path rootdir, settings &S);
 
 #endif

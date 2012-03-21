@@ -38,6 +38,9 @@ struct settings{
 	void parse_file(string filename);
 	void set_opt(char opt,string val);
 	
+	list<path> header_files;
+	list<path> implementation_files;
+	
 	string target;
 	string output;
 	

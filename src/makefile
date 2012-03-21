@@ -7,7 +7,7 @@
 
 
 CC = g++
-CFLAGS = -Wall -Wextra -pedantic -std=c++0x 
+CFLAGS = -std=c++0x -Wall -Wextra -pedantic 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = ../mfc
@@ -31,17 +31,17 @@ all: $(TARGET)
 #Dependencies:
 
 
-../build/depcheck.o: ./depcheck.cpp ./depcheck.hpp ./tools.hpp 
+../build/depcheck.o: ./depcheck.cpp ./depcheck.hpp ./settings.hpp ./tools.hpp 
 	$(CC) $(CFLAGS) $(INCLUDES) -c ./depcheck.cpp -o ../build/depcheck.o
 
 
 
-../build/main.o: ./main.cpp ./depcheck.hpp ./mf.hpp ./settings.hpp ./tools.hpp ./treewalker.hpp 
+../build/main.o: ./main.cpp ./depcheck.hpp ./mf.hpp ./output.hpp ./settings.hpp ./tools.hpp ./treewalker.hpp 
 	$(CC) $(CFLAGS) $(INCLUDES) -c ./main.cpp -o ../build/main.o
 
 
 
-../build/mf.o: ./mf.cpp ./mf.hpp ./settings.hpp 
+../build/mf.o: ./mf.cpp ./mf.hpp ./output.hpp ./settings.hpp 
 	$(CC) $(CFLAGS) $(INCLUDES) -c ./mf.cpp -o ../build/mf.o
 
 
@@ -51,7 +51,7 @@ all: $(TARGET)
 
 
 
-../build/settings.o: ./settings.cpp ./settings.hpp ./tools.hpp 
+../build/settings.o: ./settings.cpp ./output.hpp ./settings.hpp ./tools.hpp 
 	$(CC) $(CFLAGS) $(INCLUDES) -c ./settings.cpp -o ../build/settings.o
 
 
@@ -61,7 +61,7 @@ all: $(TARGET)
 
 
 
-../build/treewalker.o: ./treewalker.cpp ./tools.hpp ./treewalker.hpp 
+../build/treewalker.o: ./treewalker.cpp ./output.hpp ./settings.hpp ./tools.hpp ./treewalker.hpp 
 	$(CC) $(CFLAGS) $(INCLUDES) -c ./treewalker.cpp -o ../build/treewalker.o
 
 
