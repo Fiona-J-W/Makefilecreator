@@ -9,6 +9,8 @@
 using namespace std;
 using namespace boost::filesystem;
 
+#include "settings.hpp"
+
 const vector<string> HEADER_ENDINGS={
 	"h","hpp"
 };
@@ -25,6 +27,6 @@ enum filetype{
 
 filetype analyse_file(path file);
 
-pair<list<path>,list<path>> get_code_files(path rootdir=".");
+pair<list<path>,list<path>> get_code_files(path rootdir, settings &S);
 
 #endif

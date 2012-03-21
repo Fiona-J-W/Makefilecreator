@@ -17,6 +17,7 @@ map<string,char> FILE_OPTS={
 	{"verbose",'v'},
 	{"debug",'d'},
 	{"use",'u'},
+	{"ignore",'w'},
 	{"compiler",'c'},
 	{"link",'l'},
 	{"link-dir",'L'},
@@ -52,7 +53,7 @@ settings::settings(int argc, char **argv){
 	
 	
 	//parse commandline-opts:
-	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:c:d:v:l:L:I:O:C",OPTIONS,NULL)) != -1){
+	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:c:d:v:l:L:I:O:C",OPTIONS,NULL)) != -1){
 		set_opt(opt,optarg?optarg:"");
 	}
 	
@@ -144,6 +145,9 @@ void settings::set_opt(char opt,string val){
 			for(auto s:conditional_settings[val]){
 				set_opt(s.first,s.second);
 			}
+			break;
+		case 'w':
+			ignore_files.push_back(path(val));
 			break;
 		case 'C':
 			compile=true;

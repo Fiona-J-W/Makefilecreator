@@ -22,6 +22,7 @@ const option OPTIONS[]={
 	{"verbose",required_argument,NULL,'v'},
 	{"debug",required_argument,NULL,'d'},
 	{"use",required_argument,NULL,'u'},
+	{"ignore",required_argument,NULL,'w'},
 	//compiler-options:
 	{"compiler",required_argument,NULL,'c'},
 	{"compile",no_argument,NULL,'C'},
@@ -42,6 +43,7 @@ struct settings{
 	
 	path source_dir;
 	path build_dir;
+	list<path> ignore_files;
 	map<string,list<pair<char, string>>> conditional_settings;
 	//compiler-options:
 	string compiler;

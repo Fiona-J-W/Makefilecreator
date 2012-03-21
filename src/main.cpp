@@ -19,7 +19,7 @@ using namespace boost::filesystem;
 int main(int argc, char **argv){
 	settings S(argc, argv);
 	debug("settings read");
-	auto files=get_code_files(S.source_dir);
+	auto files=get_code_files(S.source_dir,S);
 	debug("got list of code-files");
 	list<path> headers=files.first, implementations=files.second;
 	
