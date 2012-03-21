@@ -12,7 +12,6 @@ using namespace boost::filesystem;
 
 list<path> get_includes(path filee, settings &S);
 
-//list<path> get_deps(path startfile, const list<path> &headers);
 list<path> get_deps(path startfile, settings &S);
 
 #endif

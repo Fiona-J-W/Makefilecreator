@@ -6,7 +6,6 @@ using namespace std;
 
 #include "tools.hpp"
 
-//list<path> get_includes(path file, const list<path> &headers){
 list<path> get_includes(path file, settings &S){
 	list<path> includes;
 	string line;
@@ -42,7 +41,6 @@ list<path> get_includes(path file, settings &S){
 }
 
 
-//list<path> get_deps(path startfile, const list<path> &headers){
 list<path> get_deps(path startfile, settings &S){
 	list<path> includes=get_includes(startfile,S);
 	includes=remove_double(includes);

@@ -19,10 +19,8 @@ using namespace boost::filesystem;
 int main(int argc, char **argv){
 	settings S(argc, argv);
 	debug("settings read");
-	//auto files=
 	get_code_files(S.source_dir,S);
 	debug("got list of code-files");
-	//list<path> headers=files.first, implementations=files.second;
 	
 	map<path,list<path>> dependencies;
 	debug("starting to read dependencies");
@@ -30,7 +28,6 @@ int main(int argc, char **argv){
 		debug("reading dependencies for "+x.string(),2);
 		dependencies[x]=get_deps(x,S);
 		debug("done reading dependencies for "+x.string(),4);
-		//cout<<x<<":\t"<<dependencies[x]<<endl;
 	}
 	debug("done reading all dependencies");
 	debug("creating makefile");
