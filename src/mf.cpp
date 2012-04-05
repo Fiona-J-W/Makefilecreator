@@ -62,7 +62,10 @@ int create_makefile(settings &S,map<path,list<path>> dependencies){
 	
 	output<<"$(TARGET) : $(OBJECTS)\n\t$(CC) $(CFLAGS) $(CLIBS) $(OBJECTS) -o $(TARGET)\n"<<endl;
 	
-	//output<<"%.o: %.cpp\n\t$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@\n"<<endl;
+	//debug("objectfiles",4)
+	//output<<"$(BUILDDIR)%.o: %.cpp"<<endl;
+	//output<<"\t@if test ! -d $(BUILDDIR) ; then mkdir $(BUILDDIR); echo \"created $(BUILDDIR)\" ; fi"<<endl;
+	//output<<"\t%.o: %.cpp\n\t$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@\n"<<endl;
 	
 	output<<"clean:\n\trm "<<S.build_dir.string()<<"/*.o\n"<<endl;
 	

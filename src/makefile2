@@ -21,9 +21,6 @@ OBJECTS = ../build/depcheck.o ../build/main.o ../build/mf.o ../build/output.o ..
 $(TARGET) : $(OBJECTS)
 	$(CC) $(CFLAGS) $(CLIBS) $(OBJECTS) -o $(TARGET)
 
-clean:
-	rm ../build/*.o
-
 all: $(TARGET)
 
 

@@ -29,7 +29,8 @@ const option OPTIONS[]={
 	{"link",required_argument,NULL,'l'},
 	{"link-dir",required_argument,NULL,'L'},
 	{"include-dir",required_argument,NULL,'I'},
-	{"compiler-opts",required_argument,NULL,'O'}
+	{"compiler-opts",required_argument,NULL,'O'},
+	{0,0,0,0}
 };
 
 
@@ -41,23 +42,21 @@ struct settings{
 	list<path> header_files;
 	list<path> implementation_files;
 	
-	string target;
-	string output;
+	string target="a.out";
+	string output="makefile";
 	
-	path source_dir;
-	path build_dir;
+	path source_dir=".";
+	path build_dir=".";
 	list<path> ignore_files;
 	map<string,list<pair<char, string>>> conditional_settings;
 	//compiler-options:
-	string compiler;
-	bool compile;
+	string compiler="g++";
+	bool compile=false;
 	
 	list<string> include_dirs;
 	list<string> libdirs;
 	list<string> libs;
 	list<string> compiler_opts;
-	
-	
 };
 
 

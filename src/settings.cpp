@@ -29,15 +29,6 @@ map<string,char> FILE_OPTS={
 settings::settings(int argc, char **argv){
 	int opt;
 	
-	//some defaults:
-	
-	source_dir=".";
-	build_dir=".";
-	target="a.out";
-	compiler="g++";
-	compile=false;
-	
-
 	
 	vector<string> config_files={
 		"/etc/mfc/mfc.conf",
@@ -148,6 +139,7 @@ void settings::set_opt(char opt,string val){
 			break;
 		case 'w':
 			ignore_files.push_back(path(val));
+			debug("added „"+val+"“ to ignore-list",4);
 			break;
 		case 'C':
 			compile=true;

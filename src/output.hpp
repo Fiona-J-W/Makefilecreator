@@ -4,13 +4,20 @@
 #include <string>
 using namespace std;
 
-void set_verbose_level(int v);
+#define ENABLE_DEBUG
+
+#ifdef ENABLE_DEBUG
+	void debug(string text, int level=1);
+#else
+	#define debug(x,y) ;
+	//#define debug(x) ;
+#endif
 
 void set_debug_level(int d);
 
-void note(string text, int level=1);
+void set_verbose_level(int v);
 
-void debug(string text, int level=1);
+void note(string text, int level=1);
 
 void warn(string text);
 
