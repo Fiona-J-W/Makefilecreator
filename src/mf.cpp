@@ -60,11 +60,13 @@ int create_makefile(settings &S,map<path,list<path>> dependencies){
 	//Rules:
 	output<<"\n####################\n#Rules:\n\n"<<endl;
 	
-	output<<"$(TARGET) : $(OBJECTS)\n\t$(CC) $(CFLAGS) $(CLIBS) $(OBJECTS) -o $(TARGET)\n"<<endl;
+	//output<<"$(TARGET) : $(OBJECTS)\n\t$(CC) $(CFLAGS) $(CLIBS) $(OBJECTS) -o $(TARGET)\n"<<endl;
+	output<<"$(TARGET) : $(OBJECTS)\n\t$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)\n"<<endl;
 	
-	//debug("objectfiles",4)
-	//output<<"$(BUILDDIR)%.o: %.cpp"<<endl;
-	//output<<"\t@if test ! -d $(BUILDDIR) ; then mkdir $(BUILDDIR); echo \"created $(BUILDDIR)\" ; fi"<<endl;
+	debug("objectfiles",4);
+	output<<S.build_dir.string()<<"/%.o:"<<endl;
+	output<<"\t@if test ! -d "<<S.build_dir.string()<<"; then mkdir "<<S.build_dir.string()<<"; echo \"created "<<S.build_dir.string()<<"\" ; fi"<<endl;
+	output<<"\t$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@\n"<<endl;
 	//output<<"\t%.o: %.cpp\n\t$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@\n"<<endl;
 	
 	output<<"clean:\n\trm "<<S.build_dir.string()<<"/*.o\n"<<endl;
@@ -81,7 +83,7 @@ int create_makefile(settings &S,map<path,list<path>> dependencies){
 		for(auto dep:rule.second){
 			output<<dep.string()<<" ";
 		}
-		output<<"\n\t$(CC) $(CFLAGS) $(INCLUDES) -c "<<rule.first.string()<<" -o "<<obj_name<<"\n"<<endl;
+		//output<<"\n\t$(CC) $(CFLAGS) $(INCLUDES) -c "<<rule.first.string()<<" -o "<<obj_name<<"\n"<<endl;
 		output<<"\n\n";
 	}
 	
