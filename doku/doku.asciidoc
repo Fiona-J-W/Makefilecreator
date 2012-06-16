@@ -47,7 +47,7 @@ OPTIONS
 	Set the target-file. This has to be done anywhere, because there is no default.
 
 *-o, --output*::
-	Set the output of mfc. The default is “makefile”. This must not be utside the current directory.
+	Set the output of mfc. The default is “makefile”. This must not be outside the current directory.
 
 *-v, --verbose*::
 	Set the level of verbosity. The default is 0, which means nearly no output
@@ -79,7 +79,7 @@ OPTIONS
 *-u, --use*::
 	Use the given config-set.
 
-*-O, --compiler-ops*::
+*-O, --compiler-opts*::
 	add a compile-option.
 
 BUGS

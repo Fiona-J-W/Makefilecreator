@@ -10,6 +10,6 @@ using namespace boost::filesystem;
 
 #include "settings.hpp"
 
-int create_makefile(settings &S, map<path,list<path>> dependencies);
+int create_makefile(map<path,list<path>> dependencies);
 
 #endif

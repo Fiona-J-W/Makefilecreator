@@ -4,13 +4,12 @@
 #include <string>
 using namespace std;
 
-#define ENABLE_DEBUG
+//#define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 	void debug(string text, int level=1);
 #else
 	#define debug(x,y) ;
-	//#define debug(x) ;
 #endif
 
 void set_debug_level(int d);

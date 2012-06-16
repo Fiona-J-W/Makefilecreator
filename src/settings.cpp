@@ -26,9 +26,26 @@ map<string,char> FILE_OPTS={
 	{"import",'i'}
 };
 
-settings::settings(int argc, char **argv){
+
+//Put the static members with some sane defaults here:
+list<path>    settings::header_files;
+list<path>    settings::implementation_files;
+string        settings::target                  = "a.out";
+string        settings::output                  = "makefile";
+path          settings::source_dir              = ".";
+path          settings::build_dir               = ".";
+list<path>    settings::ignore_files;
+string        settings::compiler                = "g++";
+bool          settings::compile                 = false;
+list<string>  settings::include_dirs;
+list<string>  settings::libdirs;
+list<string>  settings::libs;
+list<string>  settings::compiler_opts;
+map<string,list<pair<char, string>>> settings::conditional_settings;
+
+
+void settings::init(int argc, char **argv){
 	int opt;
-	
 	
 	vector<string> config_files={
 		"/etc/mfc/mfc.conf",
@@ -107,7 +124,6 @@ void settings::parse_file(string filename){
 	
 	file.close();
 }
-
 
 void settings::set_opt(char opt,string val){
 	switch(opt){

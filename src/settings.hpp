@@ -35,28 +35,32 @@ const option OPTIONS[]={
 
 
 struct settings{
-	settings(int argc, char **argv);
-	void parse_file(string filename);
-	void set_opt(char opt,string val);
+	//There is really  no reason to create an instance:
+	settings() = delete;
 	
-	list<path> header_files;
-	list<path> implementation_files;
+	static void init(int argc, char **argv);
 	
-	string target="a.out";
-	string output="makefile";
+	static void parse_file(string filename);
+	static void set_opt(char opt,string val);
 	
-	path source_dir=".";
-	path build_dir=".";
-	list<path> ignore_files;
-	map<string,list<pair<char, string>>> conditional_settings;
+	static list<path> header_files;
+	static list<path> implementation_files;
+	
+	static string target;
+	static string output;
+	
+	static path source_dir;
+	static path build_dir;
+	static list<path> ignore_files;
+	static map<string,list<pair<char, string>>> conditional_settings;
 	//compiler-options:
-	string compiler="g++";
-	bool compile=false;
+	static string compiler;
+	static bool compile;
 	
-	list<string> include_dirs;
-	list<string> libdirs;
-	list<string> libs;
-	list<string> compiler_opts;
+	static list<string> include_dirs;
+	static list<string> libdirs;
+	static list<string> libs;
+	static list<string> compiler_opts;
 };
 
 

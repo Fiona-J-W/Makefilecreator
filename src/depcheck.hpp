@@ -10,8 +10,8 @@ using namespace boost::filesystem;
 
 #include "settings.hpp"
 
-list<path> get_includes(path filee, settings &S);
+list<path> get_includes(path file);
 
-list<path> get_deps(path startfile, settings &S);
+list<path> get_deps(path startfile);
 
 #endif

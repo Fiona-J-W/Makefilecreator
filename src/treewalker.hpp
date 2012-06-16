@@ -27,6 +27,6 @@ enum filetype{
 
 filetype analyse_file(path file);
 
-void get_code_files(path rootdir, settings &S);
+void get_code_files();
 
 #endif

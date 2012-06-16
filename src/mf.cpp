@@ -7,31 +7,31 @@ using namespace std;
 
 string replace_ending(path file, string new_ending);
 
-int create_makefile(settings &S,map<path,list<path>> dependencies){
-	ofstream output(S.output.c_str());
+int create_makefile(map<path,list<path>> dependencies){
+	ofstream output(settings::output.c_str());
 	debug("makefile opened for writing",2);
-	output<<"# Makefile for "<<S.target<<"\n# created with makefile-creator\n\n";
+	output<<"# Makefile for "<<settings::target<<"\n# created with makefile-creator\n\n";
 	debug("header written",4);
 	
 	debug("start writing sections „Settings“",3);
 	//Settings:
 	output<<"\n####################\n#Settings:\n\n"<<endl;
 	
-	output<<"CC = "<<S.compiler<<endl;
+	output<<"CC = "<<settings::compiler<<endl;
 	debug("written compiler",4);
 	
 	output<<"CFLAGS = ";
-	for(auto opt:S.compiler_opts){
+	for(auto opt:settings::compiler_opts){
 		output<<opt<<" ";
 	}
 	output<<endl;
 	debug("written compilerflags",4);
 	
 	output<<"CLIBS = ";
-	for(auto libdir:S.libdirs){
+	for(auto libdir:settings::libdirs){
 		output<<"-L"<<libdir<<" ";
 	}
-	for(auto lib:S.libs){
+	for(auto lib:settings::libs){
 		output<<"-l"<<lib<<" ";
 	}
 	output<<endl;
@@ -39,18 +39,26 @@ int create_makefile(settings &S,map<path,list<path>> dependencies){
 	
 	
 	output<<"INCLUDES = ";
-	for(auto include:S.include_dirs){
+	for(auto include:settings::include_dirs){
 		output<<"-I"<<include<<" ";
 	}
 	output<<endl;
 	debug("written includes",4);
 	
-	output<<"TARGET = "<<S.target<<endl;
+	output<<"TARGET = "<<settings::target<<endl;
 	debug("written target",4);
 	
-	output<<"OBJECTS = ";//<<S.includes<<endl;
-	for(auto object:dependencies){
-		output<<replace_ending(S.build_dir/(object.first.filename()),"o")<<" ";
+	output<<"OBJECTS =";//<<settings::includes<<endl;
+	if( dependencies.size() <= 3){
+		for(auto object:dependencies){
+			output<<" "<<replace_ending(settings::build_dir/(object.first.filename()),"o");
+		}
+	}
+	else{
+		output << " \\\n";
+		for(auto object:dependencies){
+			output<<"\t"<<replace_ending(settings::build_dir/(object.first.filename()),"o")<<" \\\n";
+		}
 	}
 	output<<endl<<endl;
 	debug("written objects",4);
@@ -60,16 +68,20 @@ int create_makefile(settings &S,map<path,list<path>> dependencies){
 	//Rules:
 	output<<"\n####################\n#Rules:\n\n"<<endl;
 	
-	//output<<"$(TARGET) : $(OBJECTS)\n\t$(CC) $(CFLAGS) $(CLIBS) $(OBJECTS) -o $(TARGET)\n"<<endl;
-	output<<"$(TARGET) : $(OBJECTS)\n\t$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)\n"<<endl;
+	output<<"$(TARGET) : $(OBJECTS)\n"
+		<<"\t$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)\n"<<endl;
 	
 	debug("objectfiles",4);
-	output<<S.build_dir.string()<<"/%.o:"<<endl;
-	output<<"\t@if test ! -d "<<S.build_dir.string()<<"; then mkdir "<<S.build_dir.string()<<"; echo \"created "<<S.build_dir.string()<<"\" ; fi"<<endl;
-	output<<"\t$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@\n"<<endl;
-	//output<<"\t%.o: %.cpp\n\t$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@\n"<<endl;
+	output <<settings::build_dir.string()<<"/%.o:\n";
+	if( settings::build_dir != path(".") ){
+		output <<"\t@if test ! -d "<<settings::build_dir.string()
+		       <<"; then mkdir "<<settings::build_dir.string()
+		       <<"; echo \"created "<<settings::build_dir.string()
+		       <<"\" ; fi"<<endl;
+	}
+	output<<"\t$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<\n"<<endl;
 	
-	output<<"clean:\n\trm "<<S.build_dir.string()<<"/*.o\n"<<endl;
+	output<<"clean:\n\trm "<<settings::build_dir.string()<<"/*.o\n"<<endl;
 	
 	output<<"all: $(TARGET)\n"<<endl;
 	
@@ -78,7 +90,7 @@ int create_makefile(settings &S,map<path,list<path>> dependencies){
 	output<<"\n####################\n#Dependencies:\n\n"<<endl;
 	
 	for(auto rule:dependencies){
-		string obj_name=replace_ending(S.build_dir/rule.first.filename(),"o");
+		string obj_name=replace_ending(settings::build_dir/rule.first.filename(),"o");
 		output<<obj_name<<": "<<rule.first.string()<<" ";
 		for(auto dep:rule.second){
 			output<<dep.string()<<" ";

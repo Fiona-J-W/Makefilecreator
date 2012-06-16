@@ -6,7 +6,7 @@ using namespace std;
 
 #include "tools.hpp"
 
-list<path> get_includes(path file, settings &S){
+list<path> get_includes(path file){
 	list<path> includes;
 	string line;
 	ifstream filestream(file.c_str());
@@ -23,8 +23,8 @@ list<path> get_includes(path file, settings &S){
 			line.erase(pos);
 			
 			path include=file_dir/path(line);
-			if(std::find(S.header_files.begin(),S.header_files.end(),include)==S.header_files.end()){
-				if(std::find(S.implementation_files.begin(),S.implementation_files.end(),include)==S.implementation_files.end()){
+			if(std::find(settings::header_files.begin(),settings::header_files.end(),include)==settings::header_files.end()){
+				if(std::find(settings::implementation_files.begin(),settings::implementation_files.end(),include)==settings::implementation_files.end()){
 					continue;
 				}
 			}
@@ -33,7 +33,7 @@ list<path> get_includes(path file, settings &S){
 	}
 	list<path> secondary_includes, tmp;
 	for(auto i:includes){
-		tmp=get_includes(i,S);
+		tmp=get_includes(i);
 		secondary_includes.insert(secondary_includes.end()--,tmp.begin(),tmp.end());
 	}
 	includes.insert(includes.end()--,secondary_includes.begin(),secondary_includes.end());
@@ -41,8 +41,8 @@ list<path> get_includes(path file, settings &S){
 }
 
 
-list<path> get_deps(path startfile, settings &S){
-	list<path> includes=get_includes(startfile,S);
+list<path> get_deps(path startfile){
+	list<path> includes=get_includes(startfile);
 	includes=remove_double(includes);
 	return includes;
 }

@@ -21,21 +21,21 @@ filetype analyse_file(path file){
 	else return OTHER;
 }
 
-void get_code_files(path rootdir,settings &S){
-	recursive_directory_iterator it(rootdir);
+void get_code_files(){
+	recursive_directory_iterator it(settings::source_dir);
 	while(it!=recursive_directory_iterator()){
 		debug("Checking filetype of "+path(*it).string(),3);
-		if(find(S.ignore_files.begin(),S.ignore_files.end(),*it)!=S.ignore_files.end()){
+		if(find(settings::ignore_files.begin(),settings::ignore_files.end(),*it)!=settings::ignore_files.end()){
 			debug("ignored "+path(*it).string(),2);
 			++it;
 			continue;
 		}
 		switch(analyse_file(*it)){
 			case HEADER:
-				S.header_files.push_back(*it);
+				settings::header_files.push_back(*it);
 				break;
 			case IMPL:
-				S.implementation_files.push_back(*it);
+				settings::implementation_files.push_back(*it);
 				break;
 			case OTHER:
 				break;

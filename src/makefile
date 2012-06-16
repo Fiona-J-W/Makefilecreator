@@ -7,11 +7,19 @@
 
 
 CC = g++
-CFLAGS = -Wall -Wextra -pedantic -std=c++0x -Wall -Wextra -pedantic 
+CFLAGS =  -Wall -Wextra -pedantic -std=c++11 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = ../mfc
-OBJECTS = ../build/depcheck.o ../build/main.o ../build/mf.o ../build/output.o ../build/settings.o ../build/tools.o ../build/treewalker.o 
+OBJECTS = \
+	../build/depcheck.o \
+	../build/main.o \
+	../build/mf.o \
+	../build/output.o \
+	../build/settings.o \
+	../build/tools.o \
+	../build/treewalker.o \
+
 
 
 ####################
@@ -19,7 +27,11 @@ OBJECTS = ../build/depcheck.o ../build/main.o ../build/mf.o ../build/output.o ..
 
 
 $(TARGET) : $(OBJECTS)
-	$(CC) $(CFLAGS) $(CLIBS) $(OBJECTS) -o $(TARGET)
+	$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)
+
+../build/%.o:
+	@if test ! -d ../build; then mkdir ../build; echo "created ../build" ; fi
+	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 clean:
 	rm ../build/*.o
@@ -32,37 +44,16 @@ all: $(TARGET)
 
 
 ../build/depcheck.o: ./depcheck.cpp ./depcheck.hpp ./settings.hpp ./tools.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./depcheck.cpp -o ../build/depcheck.o
-
-
 
 ../build/main.o: ./main.cpp ./depcheck.hpp ./mf.hpp ./output.hpp ./settings.hpp ./tools.hpp ./treewalker.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./main.cpp -o ../build/main.o
-
-
 
 ../build/mf.o: ./mf.cpp ./mf.hpp ./output.hpp ./settings.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./mf.cpp -o ../build/mf.o
-
-
 
 ../build/output.o: ./output.cpp ./output.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./output.cpp -o ../build/output.o
-
-
 
 ../build/settings.o: ./settings.cpp ./output.hpp ./settings.hpp ./tools.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./settings.cpp -o ../build/settings.o
-
-
 
 ../build/tools.o: ./tools.cpp ./tools.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./tools.cpp -o ../build/tools.o
-
-
 
 ../build/treewalker.o: ./treewalker.cpp ./output.hpp ./settings.hpp ./tools.hpp ./treewalker.hpp 
-	$(CC) $(CFLAGS) $(INCLUDES) -c ./treewalker.cpp -o ../build/treewalker.o
-
-
 
