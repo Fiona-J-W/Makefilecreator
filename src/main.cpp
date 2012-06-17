@@ -34,7 +34,6 @@ int main(int argc, char **argv){
 	create_makefile(dependencies);
 	if(settings::compile){
 		debug("compiling",1);
-		//TODO: replace this:
 		system("make");
 	}
 	

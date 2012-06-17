@@ -8,10 +8,12 @@
 using namespace std;
 using namespace boost::filesystem;
 
-#include "settings.hpp"
 
+/// get all dependencies for @param startfile; this will call get_includes
+list<path> get_deps(path startfile);
+
+/// get all dependencies for @param file; this will be recursive
 list<path> get_includes(path file);
 
-list<path> get_deps(path startfile);
 
 #endif

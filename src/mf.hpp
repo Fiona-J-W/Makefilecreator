@@ -8,8 +8,7 @@ using namespace std;
 #include <boost/filesystem.hpp>
 using namespace boost::filesystem;
 
-#include "settings.hpp"
-
+///write the actual makefile with the data shared in settings
 int create_makefile(map<path,list<path>> dependencies);
 
 #endif

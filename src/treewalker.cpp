@@ -25,7 +25,10 @@ void get_code_files(){
 	recursive_directory_iterator it(settings::source_dir);
 	while(it!=recursive_directory_iterator()){
 		debug("Checking filetype of "+path(*it).string(),3);
-		if(find(settings::ignore_files.begin(),settings::ignore_files.end(),*it)!=settings::ignore_files.end()){
+		if(find(settings::ignore_files.begin(),
+			settings::ignore_files.end(),*it)
+			!= settings::ignore_files.end()
+		){
 			debug("ignored "+path(*it).string(),2);
 			++it;
 			continue;

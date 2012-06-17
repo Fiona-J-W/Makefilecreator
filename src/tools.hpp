@@ -10,17 +10,23 @@
 
 using namespace std;
 
+/// checks whether @param val is in @param vec
 bool in(string val, const vector<string> &vec);
 
+/// cut @param str into pieces, wherever it contains a @param delim
 vector<string> cut(string str, string delim=".");
 
+/// cut @param string at the first occurance of @param delim
 pair<string,string> cut_once(string str, string delim="=");
 
+/// clean whitespace from the beginning of @param str
 string clean_whitespace(string &str);
 
+/// write @param t to @param stream:
 template<typename T>
 ostream& operator<<(ostream &stream,list<T> t);
 
+/// create a list from @param t that contains only unique members
 template<typename T>
 list<T> remove_double(list<T> t);
 

@@ -4,7 +4,9 @@
 using namespace std;
 
 #include "output.hpp"
+#include "settings.hpp"
 
+/// Replaces the fileending with @param new_ending
 string replace_ending(path file, string new_ending);
 
 int create_makefile(map<path,list<path>> dependencies){

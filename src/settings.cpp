@@ -45,27 +45,30 @@ map<string,list<pair<char, string>>> settings::conditional_settings;
 
 
 void settings::init(int argc, char **argv){
-	int opt;
 	
-	vector<string> config_files={
-		"/etc/mfc/mfc.conf",
-		(path(getenv("HOME"))/path(".config/mfc/mfc.conf")).string(),
-		"./mfc.conf"
-	};
+	vector<string> config_files;
+	config_files.push_back("/etc/mfc/mfc.conf");
+	char *conf_home = getenv("XDG_CONFIG_HOME");
+	if( conf_home ){
+		config_files.push_back( (path(conf_home) / "mfc/mfc.conf" ).string());
+	}
+	config_files.push_back("./mfc.conf");
+	;
 	
+	//parse config-files
 	for(auto c:config_files){
 		if(exists(c)){
 			parse_file(c);
 		}
 	}
 	
-	
 	//parse commandline-opts:
-	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:c:d:v:l:L:I:O:C",OPTIONS,NULL)) != -1){
+	int opt;
+	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:c:d:v:l:L:I:O:C",
+	        OPTIONS,NULL)) != -1
+	){
 		set_opt(opt,optarg?optarg:"");
 	}
-	
-	
 	
 	if(output.empty()){
 		output=(source_dir/"makefile").string();
@@ -110,7 +113,8 @@ void settings::parse_file(string filename){
 					continue;
 				}
 				tmp=cut_once(line,"=");
-				s.push_back(pair<char,string>(FILE_OPTS[tmp.first],tmp.second));
+				s.push_back(make_pair(FILE_OPTS[tmp.first],
+				                      tmp.second));
 			}
 			conditional_settings[name]=s;
 			if(!getline(file,line)){
@@ -177,7 +181,7 @@ void settings::set_opt(char opt,string val){
 			parse_file(val);
 			break;
 		default:
-			warn("Unknown option with value „"+val+"“");
+			warn("Unknown option");
 			break;
 	}
 }

@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 
+#include "settings.hpp"
 #include "tools.hpp"
 
 list<path> get_includes(path file){
@@ -23,8 +24,16 @@ list<path> get_includes(path file){
 			line.erase(pos);
 			
 			path include=file_dir/path(line);
-			if(std::find(settings::header_files.begin(),settings::header_files.end(),include)==settings::header_files.end()){
-				if(std::find(settings::implementation_files.begin(),settings::implementation_files.end(),include)==settings::implementation_files.end()){
+			if(std::find(settings::header_files.begin(),
+			             settings::header_files.end(),include)
+			   == settings::header_files.end()
+			){
+				if(std::find(
+					settings::implementation_files.begin(),
+					settings::implementation_files.end(),
+					include)
+				   == settings::implementation_files.end()
+				){
 					continue;
 				}
 			}
@@ -34,9 +43,11 @@ list<path> get_includes(path file){
 	list<path> secondary_includes, tmp;
 	for(auto i:includes){
 		tmp=get_includes(i);
-		secondary_includes.insert(secondary_includes.end()--,tmp.begin(),tmp.end());
+		secondary_includes.insert(secondary_includes.end()--,
+		                          tmp.begin(),tmp.end());
 	}
-	includes.insert(includes.end()--,secondary_includes.begin(),secondary_includes.end());
+	includes.insert(includes.end()--,secondary_includes.begin(),
+	                secondary_includes.end());
 	return includes;
 }
 

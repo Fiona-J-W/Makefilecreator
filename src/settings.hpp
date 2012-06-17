@@ -11,8 +11,8 @@ using namespace boost::filesystem;
 
 #include <getopt.h>
 
-// string(longform), taken_arguments, NULL, char(short_index)
 
+/// commandline-options:
 const option OPTIONS[]={
 	{"source-dir",required_argument,NULL,'s'},
 	{"build-dir",required_argument,NULL,'b'},
@@ -34,32 +34,54 @@ const option OPTIONS[]={
 };
 
 
+/// interface to access and modify the settings easily from everwhere, must be 
+/// initiated with settings::init
 struct settings{
-	//There is really  no reason to create an instance:
+	///There is really no reason to create an instance, so:
 	settings() = delete;
 	
+	///Init the settings with the commandline-arguments
 	static void init(int argc, char **argv);
 	
+	///Parse @param filename as configfile
 	static void parse_file(string filename);
+	
+	/// change the state described by @param opt with @param val
 	static void set_opt(char opt,string val);
 	
+	/// List of all header-files
 	static list<path> header_files;
+	/// List of all code-files
 	static list<path> implementation_files;
 	
+	/// Target of the project
 	static string target;
+	/// place where the makefile should be written
 	static string output;
 	
+	/// root-dir of the source:
 	static path source_dir;
+	/// directory for all the object-files:
 	static path build_dir;
+	/// Files that will be completly ignored:
 	static list<path> ignore_files;
+	/// named sets of settings that can be used with one command
 	static map<string,list<pair<char, string>>> conditional_settings;
+	
 	//compiler-options:
+	
+	/// command that starts the compiler:
 	static string compiler;
+	/// should make be called after the makefile is created?
 	static bool compile;
 	
+	/// Directories that contain used header-files
 	static list<string> include_dirs;
+	/// directories, that contain the libraries
 	static list<string> libdirs;
+	/// libraries to be linked
 	static list<string> libs;
+	/// all further compiler-options
 	static list<string> compiler_opts;
 };
 
