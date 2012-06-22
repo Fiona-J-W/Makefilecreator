@@ -1,0 +1,40 @@
+\hypertarget{depcheck_8hpp}{\section{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/depcheck.hpp File Reference}
+\label{depcheck_8hpp}\index{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/depcheck.\-hpp@{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/depcheck.\-hpp}}
+}
+{\ttfamily \#include $<$list$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$boost/filesystem.\-hpp$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+list$<$ path $>$ \hyperlink{depcheck_8hpp_ad244d8f03e5c210c6cf7efe1185cf499}{get\-\_\-deps} (path startfile)
+\item 
+list$<$ path $>$ \hyperlink{depcheck_8hpp_afe3638ee6eda5ce4343952a219c16656}{get\-\_\-includes} (path file)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{depcheck_8hpp_ad244d8f03e5c210c6cf7efe1185cf499}{\index{depcheck.\-hpp@{depcheck.\-hpp}!get\-\_\-deps@{get\-\_\-deps}}
+\index{get\-\_\-deps@{get\-\_\-deps}!depcheck.hpp@{depcheck.\-hpp}}
+\subsubsection[{get\-\_\-deps}]{\setlength{\rightskip}{0pt plus 5cm}list$<$path$>$ get\-\_\-deps (
+\begin{DoxyParamCaption}
+\item[{path}]{startfile}
+\end{DoxyParamCaption}
+)}}\label{depcheck_8hpp_ad244d8f03e5c210c6cf7efe1185cf499}
+get all dependencies for 
+\begin{DoxyParams}{Parameters}
+{\em startfile;} & this will call get\-\_\-includes \\
+\hline
+\end{DoxyParams}
+\hypertarget{depcheck_8hpp_afe3638ee6eda5ce4343952a219c16656}{\index{depcheck.\-hpp@{depcheck.\-hpp}!get\-\_\-includes@{get\-\_\-includes}}
+\index{get\-\_\-includes@{get\-\_\-includes}!depcheck.hpp@{depcheck.\-hpp}}
+\subsubsection[{get\-\_\-includes}]{\setlength{\rightskip}{0pt plus 5cm}list$<$path$>$ get\-\_\-includes (
+\begin{DoxyParamCaption}
+\item[{path}]{file}
+\end{DoxyParamCaption}
+)}}\label{depcheck_8hpp_afe3638ee6eda5ce4343952a219c16656}
+get all dependencies for 
+\begin{DoxyParams}{Parameters}
+{\em file;} & this will be recursive \\
+\hline
+\end{DoxyParams}

@@ -68,7 +68,10 @@ OPTIONS
 	Add a directory to the compilers include-list.
 
 *-w, --ignore*::
-	Don't create an objectfile from the given sourcefile. This is for example usefull if you wrote a class, that uses templates and therefore include the implementation parts in the header.
+	Ignore the given file completely
+
+*-H, --header*::
+	Treat the given file as headerfile. This is for example usefull, if you wrote a class, that uses templates and therefore include the implementation parts in the header.
 
 *import*::
 	This option only works in config-files. It imports another config-file.

@@ -1,0 +1,100 @@
+\hypertarget{output_8cpp}{\section{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/output.cpp File Reference}
+\label{output_8cpp}\index{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/output.\-cpp@{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/output.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}output.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{output_8cpp_acda6c4ca4356f6fa366ddd24d39daf30}{set\-\_\-verbose\-\_\-level} (int v)
+\item 
+void \hyperlink{output_8cpp_a9eb498c240aa53961496d044fe430782}{set\-\_\-debug\-\_\-level} (int d)
+\item 
+void \hyperlink{output_8cpp_a23506194a226fa3a34ae7da5a407d835}{note} (string text, int level)
+\item 
+void \hyperlink{output_8cpp_a754aaf62d0ee63c06fbb665a3f114ce8}{print\-\_\-debug} (string text, int level)
+\item 
+void \hyperlink{output_8cpp_a46ec89c0466b3d2503f2d1b1cee73b4d}{warn} (string text)
+\item 
+void \hyperlink{output_8cpp_a921d52fd9a0a15cc5724bb08bdc60231}{error} (string text)
+\item 
+void \hyperlink{output_8cpp_a2f1653ce8cf5367a8ad4375a226de1a0}{fatal} (string text)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{output_8cpp_a921d52fd9a0a15cc5724bb08bdc60231}{\index{output.\-cpp@{output.\-cpp}!error@{error}}
+\index{error@{error}!output.cpp@{output.\-cpp}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}void error (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a921d52fd9a0a15cc5724bb08bdc60231}
+print an error, this won't do anything else \hypertarget{output_8cpp_a2f1653ce8cf5367a8ad4375a226de1a0}{\index{output.\-cpp@{output.\-cpp}!fatal@{fatal}}
+\index{fatal@{fatal}!output.cpp@{output.\-cpp}}
+\subsubsection[{fatal}]{\setlength{\rightskip}{0pt plus 5cm}void fatal (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a2f1653ce8cf5367a8ad4375a226de1a0}
+print a fatal error, this will terminate the whole program \hypertarget{output_8cpp_a23506194a226fa3a34ae7da5a407d835}{\index{output.\-cpp@{output.\-cpp}!note@{note}}
+\index{note@{note}!output.cpp@{output.\-cpp}}
+\subsubsection[{note}]{\setlength{\rightskip}{0pt plus 5cm}void note (
+\begin{DoxyParamCaption}
+\item[{string}]{text, }
+\item[{int}]{level = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a23506194a226fa3a34ae7da5a407d835}
+print a note with urgency-\/level 
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8cpp_a754aaf62d0ee63c06fbb665a3f114ce8}{\index{output.\-cpp@{output.\-cpp}!print\-\_\-debug@{print\-\_\-debug}}
+\index{print\-\_\-debug@{print\-\_\-debug}!output.cpp@{output.\-cpp}}
+\subsubsection[{print\-\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}void print\-\_\-debug (
+\begin{DoxyParamCaption}
+\item[{string}]{text, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a754aaf62d0ee63c06fbb665a3f114ce8}
+print a debug-\/message with priority level; this function is not to be called from anywhere else than the debug function (we want this to be optimized out in release-\/builds) 
+\begin{DoxyParams}{Parameters}
+{\em text} & debugmessage \\
+\hline
+{\em level} & debuglevel (lower means less important) \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8cpp_a9eb498c240aa53961496d044fe430782}{\index{output.\-cpp@{output.\-cpp}!set\-\_\-debug\-\_\-level@{set\-\_\-debug\-\_\-level}}
+\index{set\-\_\-debug\-\_\-level@{set\-\_\-debug\-\_\-level}!output.cpp@{output.\-cpp}}
+\subsubsection[{set\-\_\-debug\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-debug\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a9eb498c240aa53961496d044fe430782}
+set the debug-\/level\-: only debug-\/messages with a level $<$= 
+\begin{DoxyParams}{Parameters}
+{\em d} & will be printed \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8cpp_acda6c4ca4356f6fa366ddd24d39daf30}{\index{output.\-cpp@{output.\-cpp}!set\-\_\-verbose\-\_\-level@{set\-\_\-verbose\-\_\-level}}
+\index{set\-\_\-verbose\-\_\-level@{set\-\_\-verbose\-\_\-level}!output.cpp@{output.\-cpp}}
+\subsubsection[{set\-\_\-verbose\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-verbose\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{int}]{v}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_acda6c4ca4356f6fa366ddd24d39daf30}
+set the verbosity level\-: only notes with a level $<$= 
+\begin{DoxyParams}{Parameters}
+{\em v} & will be printed \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8cpp_a46ec89c0466b3d2503f2d1b1cee73b4d}{\index{output.\-cpp@{output.\-cpp}!warn@{warn}}
+\index{warn@{warn}!output.cpp@{output.\-cpp}}
+\subsubsection[{warn}]{\setlength{\rightskip}{0pt plus 5cm}void warn (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a46ec89c0466b3d2503f2d1b1cee73b4d}
+print a warning, this won't do anything else 

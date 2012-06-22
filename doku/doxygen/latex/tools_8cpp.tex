@@ -1,0 +1,70 @@
+\hypertarget{tools_8cpp}{\section{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/tools.cpp File Reference}
+\label{tools_8cpp}\index{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/tools.\-cpp@{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/tools.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}tools.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{tools_8cpp_a6797cf79e7e450343232b7067d5d4fcd}{in} (string val, const vector$<$ string $>$ \&vec)
+\item 
+vector$<$ string $>$ \hyperlink{tools_8cpp_a0b6591e097bf90052636f5fb59645fbe}{cut} (string str, string delim)
+\item 
+string \hyperlink{tools_8cpp_a07caf9e36936e1b0b8241afac9273c0b}{clean\-\_\-whitespace} (string \&str)
+\item 
+pair$<$ string, string $>$ \hyperlink{tools_8cpp_a81e0687e988176eba28c4336ed7aa0eb}{cut\-\_\-once} (string str, string delim)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{tools_8cpp_a07caf9e36936e1b0b8241afac9273c0b}{\index{tools.\-cpp@{tools.\-cpp}!clean\-\_\-whitespace@{clean\-\_\-whitespace}}
+\index{clean\-\_\-whitespace@{clean\-\_\-whitespace}!tools.cpp@{tools.\-cpp}}
+\subsubsection[{clean\-\_\-whitespace}]{\setlength{\rightskip}{0pt plus 5cm}string clean\-\_\-whitespace (
+\begin{DoxyParamCaption}
+\item[{string \&}]{str}
+\end{DoxyParamCaption}
+)}}\label{tools_8cpp_a07caf9e36936e1b0b8241afac9273c0b}
+clean whitespace from the beginning of str 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to be stripped \\
+\hline
+\end{DoxyParams}
+\hypertarget{tools_8cpp_a0b6591e097bf90052636f5fb59645fbe}{\index{tools.\-cpp@{tools.\-cpp}!cut@{cut}}
+\index{cut@{cut}!tools.cpp@{tools.\-cpp}}
+\subsubsection[{cut}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ cut (
+\begin{DoxyParamCaption}
+\item[{string}]{str, }
+\item[{string}]{delim = {\ttfamily \char`\"{}.\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{tools_8cpp_a0b6591e097bf90052636f5fb59645fbe}
+cut str into pieces, wherever it contains a delim 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to be cut \\
+\hline
+{\em delim} & delimeter, that marks the cutlines \\
+\hline
+\end{DoxyParams}
+\hypertarget{tools_8cpp_a81e0687e988176eba28c4336ed7aa0eb}{\index{tools.\-cpp@{tools.\-cpp}!cut\-\_\-once@{cut\-\_\-once}}
+\index{cut\-\_\-once@{cut\-\_\-once}!tools.cpp@{tools.\-cpp}}
+\subsubsection[{cut\-\_\-once}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$string,string$>$ cut\-\_\-once (
+\begin{DoxyParamCaption}
+\item[{string}]{str, }
+\item[{string}]{delim = {\ttfamily \char`\"{}=\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{tools_8cpp_a81e0687e988176eba28c4336ed7aa0eb}
+cut string at the first occurance of delim 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to be cut \\
+\hline
+{\em delim} & delimeter that marks the cutline \\
+\hline
+\end{DoxyParams}
+\hypertarget{tools_8cpp_a6797cf79e7e450343232b7067d5d4fcd}{\index{tools.\-cpp@{tools.\-cpp}!in@{in}}
+\index{in@{in}!tools.cpp@{tools.\-cpp}}
+\subsubsection[{in}]{\setlength{\rightskip}{0pt plus 5cm}bool in (
+\begin{DoxyParamCaption}
+\item[{string}]{val, }
+\item[{const vector$<$ string $>$ \&}]{vec}
+\end{DoxyParamCaption}
+)}}\label{tools_8cpp_a6797cf79e7e450343232b7067d5d4fcd}
+checks whether val is in vec 

@@ -1,0 +1,42 @@
+\hypertarget{depcheck_8cpp}{\section{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/depcheck.cpp File Reference}
+\label{depcheck_8cpp}\index{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/depcheck.\-cpp@{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/depcheck.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}depcheck.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include \char`\"{}settings.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tools.\-hpp\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+list$<$ path $>$ \hyperlink{depcheck_8cpp_afe3638ee6eda5ce4343952a219c16656}{get\-\_\-includes} (path file)
+\item 
+list$<$ path $>$ \hyperlink{depcheck_8cpp_ad244d8f03e5c210c6cf7efe1185cf499}{get\-\_\-deps} (path startfile)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{depcheck_8cpp_ad244d8f03e5c210c6cf7efe1185cf499}{\index{depcheck.\-cpp@{depcheck.\-cpp}!get\-\_\-deps@{get\-\_\-deps}}
+\index{get\-\_\-deps@{get\-\_\-deps}!depcheck.cpp@{depcheck.\-cpp}}
+\subsubsection[{get\-\_\-deps}]{\setlength{\rightskip}{0pt plus 5cm}list$<$path$>$ get\-\_\-deps (
+\begin{DoxyParamCaption}
+\item[{path}]{startfile}
+\end{DoxyParamCaption}
+)}}\label{depcheck_8cpp_ad244d8f03e5c210c6cf7efe1185cf499}
+get all dependencies for 
+\begin{DoxyParams}{Parameters}
+{\em startfile;} & this will call get\-\_\-includes \\
+\hline
+\end{DoxyParams}
+\hypertarget{depcheck_8cpp_afe3638ee6eda5ce4343952a219c16656}{\index{depcheck.\-cpp@{depcheck.\-cpp}!get\-\_\-includes@{get\-\_\-includes}}
+\index{get\-\_\-includes@{get\-\_\-includes}!depcheck.cpp@{depcheck.\-cpp}}
+\subsubsection[{get\-\_\-includes}]{\setlength{\rightskip}{0pt plus 5cm}list$<$path$>$ get\-\_\-includes (
+\begin{DoxyParamCaption}
+\item[{path}]{file}
+\end{DoxyParamCaption}
+)}}\label{depcheck_8cpp_afe3638ee6eda5ce4343952a219c16656}
+get all dependencies for 
+\begin{DoxyParams}{Parameters}
+{\em file;} & this will be recursive \\
+\hline
+\end{DoxyParams}

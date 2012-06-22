@@ -2,12 +2,12 @@
 .\"     Title: mfc
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.77.0 <http://docbook.sf.net/>
-.\"      Date: 06/16/2012
+.\"      Date: 06/22/2012
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "MFC" "1" "06/16/2012" "\ \&" "\ \&"
+.TH "MFC" "1" "06/22/2012" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -139,7 +139,12 @@ Add a directory to the compilers include\-list\&.
 .PP
 \fB\-w, \-\-ignore\fR
 .RS 4
-Don\(cqt create an objectfile from the given sourcefile\&. This is for example usefull if you wrote a class, that uses templates and therefore include the implementation parts in the header\&.
+Ignore the given file completely
+.RE
+.PP
+\fB\-H, \-\-header\fR
+.RS 4
+Treat the given file as headerfile\&. This is for example usefull, if you wrote a class, that uses templates and therefore include the implementation parts in the header\&.
 .RE
 .PP
 \fBimport\fR

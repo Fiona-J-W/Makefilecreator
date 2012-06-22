@@ -1,0 +1,126 @@
+\hypertarget{output_8hpp}{\section{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/output.hpp File Reference}
+\label{output_8hpp}\index{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/output.\-hpp@{/home/florian/\-Entwicklung/\-C++/makefile\-\_\-creator/src/output.\-hpp}}
+}
+{\ttfamily \#include $<$string$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{output_8hpp_a432138093c53d7580af9ec5c5dca387f}{E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{output_8hpp_a754aaf62d0ee63c06fbb665a3f114ce8}{print\-\_\-debug} (string text, int level)
+\item 
+void \hyperlink{output_8hpp_a96acd905f46e4d0c84658326e9aa8f07}{debug} (string text, int level=1)
+\item 
+void \hyperlink{output_8hpp_a9eb498c240aa53961496d044fe430782}{set\-\_\-debug\-\_\-level} (int d)
+\item 
+void \hyperlink{output_8hpp_acda6c4ca4356f6fa366ddd24d39daf30}{set\-\_\-verbose\-\_\-level} (int v)
+\item 
+void \hyperlink{output_8hpp_adb9fae948cc0cb7d451551a12852f369}{note} (string text, int level=1)
+\item 
+void \hyperlink{output_8hpp_a46ec89c0466b3d2503f2d1b1cee73b4d}{warn} (string text)
+\item 
+void \hyperlink{output_8hpp_a921d52fd9a0a15cc5724bb08bdc60231}{error} (string text)
+\item 
+void \hyperlink{output_8hpp_a2f1653ce8cf5367a8ad4375a226de1a0}{fatal} (string text)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{output_8hpp_a432138093c53d7580af9ec5c5dca387f}{\index{output.\-hpp@{output.\-hpp}!E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G@{E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G}}
+\index{E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G@{E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G}!output.hpp@{output.\-hpp}}
+\subsubsection[{E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-A\-B\-L\-E\-\_\-\-D\-E\-B\-U\-G~0}}\label{output_8hpp_a432138093c53d7580af9ec5c5dca387f}
+
+
+\subsection{Function Documentation}
+\hypertarget{output_8hpp_a96acd905f46e4d0c84658326e9aa8f07}{\index{output.\-hpp@{output.\-hpp}!debug@{debug}}
+\index{debug@{debug}!output.hpp@{output.\-hpp}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}void debug (
+\begin{DoxyParamCaption}
+\item[{string}]{text, }
+\item[{int}]{level = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_a96acd905f46e4d0c84658326e9aa8f07}
+print a debugmessage; this won't do anything in release-\/builds 
+\begin{DoxyParams}{Parameters}
+{\em text} & debugmessage \\
+\hline
+{\em level} & debuglevel (lower means less important) \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8hpp_a921d52fd9a0a15cc5724bb08bdc60231}{\index{output.\-hpp@{output.\-hpp}!error@{error}}
+\index{error@{error}!output.hpp@{output.\-hpp}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}void error (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_a921d52fd9a0a15cc5724bb08bdc60231}
+print an error, this won't do anything else \hypertarget{output_8hpp_a2f1653ce8cf5367a8ad4375a226de1a0}{\index{output.\-hpp@{output.\-hpp}!fatal@{fatal}}
+\index{fatal@{fatal}!output.hpp@{output.\-hpp}}
+\subsubsection[{fatal}]{\setlength{\rightskip}{0pt plus 5cm}void fatal (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_a2f1653ce8cf5367a8ad4375a226de1a0}
+print a fatal error, this will terminate the whole program \hypertarget{output_8hpp_adb9fae948cc0cb7d451551a12852f369}{\index{output.\-hpp@{output.\-hpp}!note@{note}}
+\index{note@{note}!output.hpp@{output.\-hpp}}
+\subsubsection[{note}]{\setlength{\rightskip}{0pt plus 5cm}void note (
+\begin{DoxyParamCaption}
+\item[{string}]{text, }
+\item[{int}]{level = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_adb9fae948cc0cb7d451551a12852f369}
+print a note with urgency-\/level 
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8hpp_a754aaf62d0ee63c06fbb665a3f114ce8}{\index{output.\-hpp@{output.\-hpp}!print\-\_\-debug@{print\-\_\-debug}}
+\index{print\-\_\-debug@{print\-\_\-debug}!output.hpp@{output.\-hpp}}
+\subsubsection[{print\-\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}void print\-\_\-debug (
+\begin{DoxyParamCaption}
+\item[{string}]{text, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_a754aaf62d0ee63c06fbb665a3f114ce8}
+print a debug-\/message with priority level; this function is not to be called from anywhere else than the debug function (we want this to be optimized out in release-\/builds) 
+\begin{DoxyParams}{Parameters}
+{\em text} & debugmessage \\
+\hline
+{\em level} & debuglevel (lower means less important) \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8hpp_a9eb498c240aa53961496d044fe430782}{\index{output.\-hpp@{output.\-hpp}!set\-\_\-debug\-\_\-level@{set\-\_\-debug\-\_\-level}}
+\index{set\-\_\-debug\-\_\-level@{set\-\_\-debug\-\_\-level}!output.hpp@{output.\-hpp}}
+\subsubsection[{set\-\_\-debug\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-debug\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_a9eb498c240aa53961496d044fe430782}
+set the debug-\/level\-: only debug-\/messages with a level $<$= 
+\begin{DoxyParams}{Parameters}
+{\em d} & will be printed \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8hpp_acda6c4ca4356f6fa366ddd24d39daf30}{\index{output.\-hpp@{output.\-hpp}!set\-\_\-verbose\-\_\-level@{set\-\_\-verbose\-\_\-level}}
+\index{set\-\_\-verbose\-\_\-level@{set\-\_\-verbose\-\_\-level}!output.hpp@{output.\-hpp}}
+\subsubsection[{set\-\_\-verbose\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-verbose\-\_\-level (
+\begin{DoxyParamCaption}
+\item[{int}]{v}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_acda6c4ca4356f6fa366ddd24d39daf30}
+set the verbosity level\-: only notes with a level $<$= 
+\begin{DoxyParams}{Parameters}
+{\em v} & will be printed \\
+\hline
+\end{DoxyParams}
+\hypertarget{output_8hpp_a46ec89c0466b3d2503f2d1b1cee73b4d}{\index{output.\-hpp@{output.\-hpp}!warn@{warn}}
+\index{warn@{warn}!output.hpp@{output.\-hpp}}
+\subsubsection[{warn}]{\setlength{\rightskip}{0pt plus 5cm}void warn (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{output_8hpp_a46ec89c0466b3d2503f2d1b1cee73b4d}
+print a warning, this won't do anything else 
