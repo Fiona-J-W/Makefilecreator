@@ -10,23 +10,43 @@
 
 using namespace std;
 
-/// checks whether @param val is in @param vec
+/**
+ * checks whether val is in vec 
+ */
 bool in(string val, const vector<string> &vec);
 
-/// cut @param str into pieces, wherever it contains a @param delim
+/**
+ * cut str into pieces, wherever it contains a delim
+ * @param str string to be cut
+ * @param delim delimeter, that marks the cutlines
+ */
 vector<string> cut(string str, string delim=".");
 
-/// cut @param string at the first occurance of @param delim
+/**
+ * cut string at the first occurance of delim
+ * @param str string to be cut 
+ * @param delim delimeter that marks the cutline
+ */
 pair<string,string> cut_once(string str, string delim="=");
 
-/// clean whitespace from the beginning of @param str
+/**
+ * clean whitespace from the beginning of str 
+ * @param str string to be stripped
+ */
 string clean_whitespace(string &str);
 
-/// write @param t to @param stream:
+/**
+ * write t to stream:
+ * @param t list of values to be written to the stream
+ * @param stream stream that the list will be written to
+ */
 template<typename T>
 ostream& operator<<(ostream &stream,list<T> t);
 
-/// create a list from @param t that contains only unique members
+/**
+ * create a list from t that contains only unique members
+ * @param t List that will be freed from double-members
+ */
 template<typename T>
 list<T> remove_double(list<T> t);
 

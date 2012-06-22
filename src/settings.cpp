@@ -18,6 +18,7 @@ map<string,char> FILE_OPTS={
 	{"debug",'d'},
 	{"use",'u'},
 	{"ignore",'w'},
+	{"header",'H'},
 	{"compiler",'c'},
 	{"link",'l'},
 	{"link-dir",'L'},
@@ -64,7 +65,7 @@ void settings::init(int argc, char **argv){
 	
 	//parse commandline-opts:
 	int opt;
-	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:c:d:v:l:L:I:O:C",
+	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:H:c:d:v:l:L:I:O:C",
 	        OPTIONS,NULL)) != -1
 	){
 		set_opt(opt,optarg?optarg:"");
@@ -160,6 +161,10 @@ void settings::set_opt(char opt,string val){
 		case 'w':
 			ignore_files.push_back(path(val));
 			debug("added „"+val+"“ to ignore-list",4);
+			break;
+		case 'H':
+			ignore_files.push_back(path(val));
+			header_files.push_back(path(val));
 			break;
 		case 'C':
 			compile=true;

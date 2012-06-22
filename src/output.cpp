@@ -21,13 +21,17 @@ void note(string text, int level){
 	}
 }
 
-#ifdef ENABLE_DEBUG
 void debug(string text, int level){
+	if( ENABLE_DEBUG ){
+		print_debug(text,level);
+	}
+}
+
+void print_debug(string text, int level){
 	if(level<=debug_level){
 		cout<<"DEBUG ("<<level<<"): "<<text<<endl;
 	}
 }
-#endif
 
 void warn(string text){
 	cerr<<"WARNING: "<<text<<endl;
