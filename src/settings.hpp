@@ -31,6 +31,8 @@ const option OPTIONS[]={
 	{"use",required_argument,NULL,'u'},
 	{"ignore",required_argument,NULL,'w'},
 	{"header",required_argument,NULL,'H'},
+	{"header-ending",required_argument,NULL,'e'},
+	{"impl-ending",required_argument,NULL,'E'},
 	//compiler-options:
 	{"compiler",required_argument,NULL,'c'},
 	{"compile",no_argument,NULL,'C'},
@@ -105,6 +107,15 @@ struct settings{
 	 */
 	static map<string,list<pair<char, string>>> conditional_settings;
 	
+	/**
+	 * endings of headerfiles
+	 */
+	static vector<string> header_endings;
+	/**
+	 * endings of files, that contain the actual code
+	 */
+	static vector<string> implementation_endings;
+	
 	//compiler-options:
 	
 	/**
@@ -123,7 +134,7 @@ struct settings{
 	/**
 	 * directories, that contain the libraries
 	 */
-	static list<string> libdirs;
+	static list<string> lib_dirs;
 	/**
 	 * libraries to be linked
 	 */

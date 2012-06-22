@@ -8,6 +8,12 @@
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{mf_8hpp_a91b17e59f0d6fdfe2654922f0fb126a7}{create\-\_\-makefile} (map$<$ path, list$<$ path $>$$>$ dependencies)
+\item 
+void \hyperlink{mf_8hpp_a79287a6472c18531062b6f43836992c3}{write\-\_\-settings} (ofstream \&output, path relative\-\_\-dir, map$<$ path, list$<$ path $>$$>$ dependencies)
+\item 
+void \hyperlink{mf_8hpp_ae620e9e37d679380a6f5cebe4f35d8f1}{write\-\_\-rules} (ofstream \&output, path relative\-\_\-dir)
+\item 
+void \hyperlink{mf_8hpp_a7f0432b243f29d9549fbc67a9caee274}{write\-\_\-dependencies} (ofstream \&output, path relative\-\_\-dir, map$<$ path, list$<$ path $>$$>$ dependencies)
 \end{DoxyCompactItemize}
 
 
@@ -19,4 +25,30 @@ int \hyperlink{mf_8hpp_a91b17e59f0d6fdfe2654922f0fb126a7}{create\-\_\-makefile} 
 \item[{map$<$ path, list$<$ path $>$$>$}]{dependencies}
 \end{DoxyParamCaption}
 )}}\label{mf_8hpp_a91b17e59f0d6fdfe2654922f0fb126a7}
-write the actual makefile with the data shared in settings 
+write the actual makefile with the data shared in settings \hypertarget{mf_8hpp_a7f0432b243f29d9549fbc67a9caee274}{\index{mf.\-hpp@{mf.\-hpp}!write\-\_\-dependencies@{write\-\_\-dependencies}}
+\index{write\-\_\-dependencies@{write\-\_\-dependencies}!mf.hpp@{mf.\-hpp}}
+\subsubsection[{write\-\_\-dependencies}]{\setlength{\rightskip}{0pt plus 5cm}void write\-\_\-dependencies (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{output, }
+\item[{path}]{relative\-\_\-dir, }
+\item[{map$<$ path, list$<$ path $>$$>$}]{dependencies}
+\end{DoxyParamCaption}
+)}}\label{mf_8hpp_a7f0432b243f29d9549fbc67a9caee274}
+writes the found dependencies for all objectfiles to the output \hypertarget{mf_8hpp_ae620e9e37d679380a6f5cebe4f35d8f1}{\index{mf.\-hpp@{mf.\-hpp}!write\-\_\-rules@{write\-\_\-rules}}
+\index{write\-\_\-rules@{write\-\_\-rules}!mf.hpp@{mf.\-hpp}}
+\subsubsection[{write\-\_\-rules}]{\setlength{\rightskip}{0pt plus 5cm}void write\-\_\-rules (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{output, }
+\item[{path}]{relative\-\_\-dir}
+\end{DoxyParamCaption}
+)}}\label{mf_8hpp_ae620e9e37d679380a6f5cebe4f35d8f1}
+writes the build-\/rules to the output \hypertarget{mf_8hpp_a79287a6472c18531062b6f43836992c3}{\index{mf.\-hpp@{mf.\-hpp}!write\-\_\-settings@{write\-\_\-settings}}
+\index{write\-\_\-settings@{write\-\_\-settings}!mf.hpp@{mf.\-hpp}}
+\subsubsection[{write\-\_\-settings}]{\setlength{\rightskip}{0pt plus 5cm}void write\-\_\-settings (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{output, }
+\item[{path}]{relative\-\_\-dir, }
+\item[{map$<$ path, list$<$ path $>$$>$}]{dependencies}
+\end{DoxyParamCaption}
+)}}\label{mf_8hpp_a79287a6472c18531062b6f43836992c3}
+writes the general settings to output 

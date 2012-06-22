@@ -39,13 +39,17 @@ static list$<$ path $>$ \hyperlink{structsettings_aff7f8f80b30749135c089741a4e07
 static map$<$ string, list$<$ pair\\*
 $<$ char, string $>$ $>$ $>$ \hyperlink{structsettings_ac27735f1d33fb886c326a795d4368994}{conditional\-\_\-settings}
 \item 
+static vector$<$ string $>$ \hyperlink{structsettings_a041d015d89dc53beca67ff8171e4eebb}{header\-\_\-endings} = \{ \char`\"{}hpp\char`\"{},\char`\"{}hxx\char`\"{},\char`\"{}hh\char`\"{},\char`\"{}h\char`\"{} \}
+\item 
+static vector$<$ string $>$ \hyperlink{structsettings_af86d24c31f2f22f2d4bb588b901b06f7}{implementation\-\_\-endings} = \{ \char`\"{}cpp\char`\"{},\char`\"{}cxx\char`\"{},\char`\"{}cc\char`\"{},\char`\"{}c\char`\"{} \}
+\item 
 static string \hyperlink{structsettings_a208883e6fc65f3abafbfec8ca0d4989d}{compiler} = \char`\"{}g++\char`\"{}
 \item 
 static bool \hyperlink{structsettings_a575bd5aad5894fe2b1a9c110506c4a0a}{compile} = false
 \item 
 static list$<$ string $>$ \hyperlink{structsettings_a08e64a4b8389d43ddb5ac80a9c38b972}{include\-\_\-dirs}
 \item 
-static list$<$ string $>$ \hyperlink{structsettings_af61346ae2dab3f7390b28e0bf2375f4e}{libdirs}
+static list$<$ string $>$ \hyperlink{structsettings_ad610e1e631ff18ec593a47b6c73e6a4f}{lib\-\_\-dirs}
 \item 
 static list$<$ string $>$ \hyperlink{structsettings_a7c19b7fd03fe16661f946dbfc1417cb4}{libs}
 \item 
@@ -120,21 +124,27 @@ command that starts the compiler\-: \hypertarget{structsettings_a5b9460853aa54ea
 all further compiler-\/options \hypertarget{structsettings_ac27735f1d33fb886c326a795d4368994}{\index{settings@{settings}!conditional\-\_\-settings@{conditional\-\_\-settings}}
 \index{conditional\-\_\-settings@{conditional\-\_\-settings}!settings@{settings}}
 \subsubsection[{conditional\-\_\-settings}]{\setlength{\rightskip}{0pt plus 5cm}map$<$ string, list$<$ pair$<$ char, string $>$ $>$ $>$ settings\-::conditional\-\_\-settings\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_ac27735f1d33fb886c326a795d4368994}
-named sets of settings that can be used with one command \hypertarget{structsettings_ab910724468ff0119dcb5fec1399eac9f}{\index{settings@{settings}!header\-\_\-files@{header\-\_\-files}}
+named sets of settings that can be used with one command \hypertarget{structsettings_a041d015d89dc53beca67ff8171e4eebb}{\index{settings@{settings}!header\-\_\-endings@{header\-\_\-endings}}
+\index{header\-\_\-endings@{header\-\_\-endings}!settings@{settings}}
+\subsubsection[{header\-\_\-endings}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ settings\-::header\-\_\-endings = \{ \char`\"{}hpp\char`\"{},\char`\"{}hxx\char`\"{},\char`\"{}hh\char`\"{},\char`\"{}h\char`\"{} \}\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_a041d015d89dc53beca67ff8171e4eebb}
+endings of headerfiles \hypertarget{structsettings_ab910724468ff0119dcb5fec1399eac9f}{\index{settings@{settings}!header\-\_\-files@{header\-\_\-files}}
 \index{header\-\_\-files@{header\-\_\-files}!settings@{settings}}
 \subsubsection[{header\-\_\-files}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ path $>$ settings\-::header\-\_\-files\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_ab910724468ff0119dcb5fec1399eac9f}
 List of all header-\/files \hypertarget{structsettings_aff7f8f80b30749135c089741a4e07b0c}{\index{settings@{settings}!ignore\-\_\-files@{ignore\-\_\-files}}
 \index{ignore\-\_\-files@{ignore\-\_\-files}!settings@{settings}}
 \subsubsection[{ignore\-\_\-files}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ path $>$ settings\-::ignore\-\_\-files\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_aff7f8f80b30749135c089741a4e07b0c}
-Files that will be completly ignored\-: \hypertarget{structsettings_aca3dbe12e7356fd1470e358838053b11}{\index{settings@{settings}!implementation\-\_\-files@{implementation\-\_\-files}}
+Files that will be completly ignored\-: \hypertarget{structsettings_af86d24c31f2f22f2d4bb588b901b06f7}{\index{settings@{settings}!implementation\-\_\-endings@{implementation\-\_\-endings}}
+\index{implementation\-\_\-endings@{implementation\-\_\-endings}!settings@{settings}}
+\subsubsection[{implementation\-\_\-endings}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ settings\-::implementation\-\_\-endings = \{ \char`\"{}cpp\char`\"{},\char`\"{}cxx\char`\"{},\char`\"{}cc\char`\"{},\char`\"{}c\char`\"{} \}\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_af86d24c31f2f22f2d4bb588b901b06f7}
+endings of files, that contain the actual code \hypertarget{structsettings_aca3dbe12e7356fd1470e358838053b11}{\index{settings@{settings}!implementation\-\_\-files@{implementation\-\_\-files}}
 \index{implementation\-\_\-files@{implementation\-\_\-files}!settings@{settings}}
 \subsubsection[{implementation\-\_\-files}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ path $>$ settings\-::implementation\-\_\-files\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_aca3dbe12e7356fd1470e358838053b11}
 List of all code-\/files \hypertarget{structsettings_a08e64a4b8389d43ddb5ac80a9c38b972}{\index{settings@{settings}!include\-\_\-dirs@{include\-\_\-dirs}}
 \index{include\-\_\-dirs@{include\-\_\-dirs}!settings@{settings}}
 \subsubsection[{include\-\_\-dirs}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ string $>$ settings\-::include\-\_\-dirs\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_a08e64a4b8389d43ddb5ac80a9c38b972}
-Directories that contain used header-\/files \hypertarget{structsettings_af61346ae2dab3f7390b28e0bf2375f4e}{\index{settings@{settings}!libdirs@{libdirs}}
-\index{libdirs@{libdirs}!settings@{settings}}
-\subsubsection[{libdirs}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ string $>$ settings\-::libdirs\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_af61346ae2dab3f7390b28e0bf2375f4e}
+Directories that contain used header-\/files \hypertarget{structsettings_ad610e1e631ff18ec593a47b6c73e6a4f}{\index{settings@{settings}!lib\-\_\-dirs@{lib\-\_\-dirs}}
+\index{lib\-\_\-dirs@{lib\-\_\-dirs}!settings@{settings}}
+\subsubsection[{lib\-\_\-dirs}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ string $>$ settings\-::lib\-\_\-dirs\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_ad610e1e631ff18ec593a47b6c73e6a4f}
 directories, that contain the libraries \hypertarget{structsettings_a7c19b7fd03fe16661f946dbfc1417cb4}{\index{settings@{settings}!libs@{libs}}
 \index{libs@{libs}!settings@{settings}}
 \subsubsection[{libs}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ string $>$ settings\-::libs\hspace{0.3cm}{\ttfamily [static]}}}\label{structsettings_a7c19b7fd03fe16661f946dbfc1417cb4}

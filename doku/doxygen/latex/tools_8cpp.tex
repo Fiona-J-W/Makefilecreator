@@ -10,25 +10,13 @@ bool \hyperlink{tools_8cpp_a6797cf79e7e450343232b7067d5d4fcd}{in} (string val, c
 \item 
 vector$<$ string $>$ \hyperlink{tools_8cpp_a0b6591e097bf90052636f5fb59645fbe}{cut} (string str, string delim)
 \item 
-string \hyperlink{tools_8cpp_a07caf9e36936e1b0b8241afac9273c0b}{clean\-\_\-whitespace} (string \&str)
+string \hyperlink{tools_8cpp_ace3fc4640f1dd02898c4b532bcb37dbd}{strip} (string \&str)
 \item 
 pair$<$ string, string $>$ \hyperlink{tools_8cpp_a81e0687e988176eba28c4336ed7aa0eb}{cut\-\_\-once} (string str, string delim)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\hypertarget{tools_8cpp_a07caf9e36936e1b0b8241afac9273c0b}{\index{tools.\-cpp@{tools.\-cpp}!clean\-\_\-whitespace@{clean\-\_\-whitespace}}
-\index{clean\-\_\-whitespace@{clean\-\_\-whitespace}!tools.cpp@{tools.\-cpp}}
-\subsubsection[{clean\-\_\-whitespace}]{\setlength{\rightskip}{0pt plus 5cm}string clean\-\_\-whitespace (
-\begin{DoxyParamCaption}
-\item[{string \&}]{str}
-\end{DoxyParamCaption}
-)}}\label{tools_8cpp_a07caf9e36936e1b0b8241afac9273c0b}
-clean whitespace from the beginning of str 
-\begin{DoxyParams}{Parameters}
-{\em str} & string to be stripped \\
-\hline
-\end{DoxyParams}
 \hypertarget{tools_8cpp_a0b6591e097bf90052636f5fb59645fbe}{\index{tools.\-cpp@{tools.\-cpp}!cut@{cut}}
 \index{cut@{cut}!tools.cpp@{tools.\-cpp}}
 \subsubsection[{cut}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ cut (
@@ -67,4 +55,15 @@ cut string at the first occurance of delim
 \item[{const vector$<$ string $>$ \&}]{vec}
 \end{DoxyParamCaption}
 )}}\label{tools_8cpp_a6797cf79e7e450343232b7067d5d4fcd}
-checks whether val is in vec 
+checks whether val is in vec \hypertarget{tools_8cpp_ace3fc4640f1dd02898c4b532bcb37dbd}{\index{tools.\-cpp@{tools.\-cpp}!strip@{strip}}
+\index{strip@{strip}!tools.cpp@{tools.\-cpp}}
+\subsubsection[{strip}]{\setlength{\rightskip}{0pt plus 5cm}string strip (
+\begin{DoxyParamCaption}
+\item[{string \&}]{str}
+\end{DoxyParamCaption}
+)}}\label{tools_8cpp_ace3fc4640f1dd02898c4b532bcb37dbd}
+clean whitespace from the beginning of str 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to be stripped \\
+\hline
+\end{DoxyParams}

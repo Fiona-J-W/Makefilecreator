@@ -21,7 +21,7 @@ void write_settings(ofstream &output,path relative_dir, map<path,list<path>> dep
 	output<<"\n";
 	
 	output<<"CLIBS = ";
-	for(auto libdir:settings::libdirs){
+	for(auto libdir:settings::lib_dirs){
 		output<<"-L"<<libdir<<" ";
 	}
 	for(auto lib:settings::libs){

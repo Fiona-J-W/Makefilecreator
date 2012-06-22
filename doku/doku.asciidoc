@@ -55,6 +55,12 @@ OPTIONS
 *-d, --debug*::
 	Set the debug level. 
 
+*-e, --header-ending*::
+	add a fileending that indicates a headerfile 
+
+*-E, --impl-ending*::
+	add a fileending that indicates a codefile 
+
 *-c, --compiler*::
 	set the compiler.
 

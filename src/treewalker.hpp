@@ -9,21 +9,6 @@
 using namespace std;
 using namespace boost::filesystem;
 
-#include "settings.hpp"
-
-/**
- * all sane fileendings for headerfiles
- */
-const vector<string> HEADER_ENDINGS={
-	"hpp","hxx","hh","h"
-};
-
-/**
- * all sane fileendings for files, that contain the actual code
- */
-const vector<string> IMPLEMENTATION_ENDINGS={
-	"cpp","cxx","cc","c"
-};
 
 /**
  * Type of the file; should be self-explaining

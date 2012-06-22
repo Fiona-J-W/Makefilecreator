@@ -21,7 +21,7 @@ vector<string> cut(string str, string delim){
 }
 
 
-string clean_whitespace(string &str){
+string strip(string &str){
 	size_t pos=0;
 	while(str[pos]==' '||str[pos]=='\t'){
 		++pos;

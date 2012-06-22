@@ -13,6 +13,8 @@ void \hyperlink{output_8cpp_a9eb498c240aa53961496d044fe430782}{set\-\_\-debug\-\
 \item 
 void \hyperlink{output_8cpp_a23506194a226fa3a34ae7da5a407d835}{note} (string text, int level)
 \item 
+void \hyperlink{output_8cpp_a87823cf53897dec2edde9cf241182eec}{debug} (string text, int level)
+\begin{DoxyCompactList}\small\item\em T\-O\-D\-O\-: make this world-\/visible. \end{DoxyCompactList}\item 
 void \hyperlink{output_8cpp_a754aaf62d0ee63c06fbb665a3f114ce8}{print\-\_\-debug} (string text, int level)
 \item 
 void \hyperlink{output_8cpp_a46ec89c0466b3d2503f2d1b1cee73b4d}{warn} (string text)
@@ -24,6 +26,25 @@ void \hyperlink{output_8cpp_a2f1653ce8cf5367a8ad4375a226de1a0}{fatal} (string te
 
 
 \subsection{Function Documentation}
+\hypertarget{output_8cpp_a87823cf53897dec2edde9cf241182eec}{\index{output.\-cpp@{output.\-cpp}!debug@{debug}}
+\index{debug@{debug}!output.cpp@{output.\-cpp}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}void debug (
+\begin{DoxyParamCaption}
+\item[{string}]{text, }
+\item[{int}]{level = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{output_8cpp_a87823cf53897dec2edde9cf241182eec}
+
+
+T\-O\-D\-O\-: make this world-\/visible. 
+
+print a debugmessage; this won't do anything in release-\/builds 
+\begin{DoxyParams}{Parameters}
+{\em text} & debugmessage \\
+\hline
+{\em level} & debuglevel (lower means less important) \\
+\hline
+\end{DoxyParams}
 \hypertarget{output_8cpp_a921d52fd9a0a15cc5724bb08bdc60231}{\index{output.\-cpp@{output.\-cpp}!error@{error}}
 \index{error@{error}!output.cpp@{output.\-cpp}}
 \subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}void error (

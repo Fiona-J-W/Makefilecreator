@@ -5,6 +5,9 @@ using namespace std;
 
 #include "tools.hpp"
 #include "output.hpp"
+#include "settings.hpp"
+
+
 
 filetype analyse_file(path file){
 	if(!is_regular_file(file)){
@@ -12,10 +15,10 @@ filetype analyse_file(path file){
 	}
 	string filename=file.filename().string();
 	string filename_extension=cut(filename,".").back();
-	if(in(filename_extension,HEADER_ENDINGS)){
+	if(in(filename_extension,settings::header_endings)){
 		return HEADER;
 	}
-	else if(in(filename_extension,IMPLEMENTATION_ENDINGS)){
+	else if(in(filename_extension,settings::implementation_endings)){
 		return IMPL;
 	}
 	else return OTHER;

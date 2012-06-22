@@ -33,7 +33,7 @@ pair<string,string> cut_once(string str, string delim="=");
  * clean whitespace from the beginning of str 
  * @param str string to be stripped
  */
-string clean_whitespace(string &str);
+string strip(string &str);
 
 /**
  * write t to stream:

@@ -5,7 +5,6 @@
 {\ttfamily \#include $<$utility$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$boost/filesystem.\-hpp$>$}\\*
-{\ttfamily \#include \char`\"{}settings.\-hpp\char`\"{}}\\*
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,13 +19,6 @@ enum \hyperlink{treewalker_8hpp_af547d73b85f475c4abfafdb76bf0c301}{filetype} \{ 
 \hyperlink{treewalker_8hpp_af547d73b85f475c4abfafdb76bf0c301}{filetype} \hyperlink{treewalker_8hpp_ad034fff069073deb27f6aeefc1d5a61d}{analyse\-\_\-file} (path file)
 \item 
 void \hyperlink{treewalker_8hpp_a5b174627e233d8725b52328b1786175f}{get\-\_\-code\-\_\-files} ()
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-const vector$<$ string $>$ \hyperlink{treewalker_8hpp_adb078d66a95d2d71221a459b32b5e48e}{H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S}
-\item 
-const vector$<$ string $>$ \hyperlink{treewalker_8hpp_aa12316237483ad4b163089c8c4f35412}{I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S}
 \end{DoxyCompactItemize}
 
 
@@ -56,12 +48,7 @@ Type of the file; should be self-\/explaining \begin{Desc}
 \item[{path}]{file}
 \end{DoxyParamCaption}
 )}}\label{treewalker_8hpp_ad034fff069073deb27f6aeefc1d5a61d}
-analyse what filetype 
-\begin{DoxyParams}{Parameters}
-{\em file} & is \\
-\hline
-\end{DoxyParams}
-\hypertarget{treewalker_8hpp_a5b174627e233d8725b52328b1786175f}{\index{treewalker.\-hpp@{treewalker.\-hpp}!get\-\_\-code\-\_\-files@{get\-\_\-code\-\_\-files}}
+analyse what filetype param file is \hypertarget{treewalker_8hpp_a5b174627e233d8725b52328b1786175f}{\index{treewalker.\-hpp@{treewalker.\-hpp}!get\-\_\-code\-\_\-files@{get\-\_\-code\-\_\-files}}
 \index{get\-\_\-code\-\_\-files@{get\-\_\-code\-\_\-files}!treewalker.hpp@{treewalker.\-hpp}}
 \subsubsection[{get\-\_\-code\-\_\-files}]{\setlength{\rightskip}{0pt plus 5cm}void get\-\_\-code\-\_\-files (
 \begin{DoxyParamCaption}
@@ -69,24 +56,3 @@ analyse what filetype
 \end{DoxyParamCaption}
 )}}\label{treewalker_8hpp_a5b174627e233d8725b52328b1786175f}
 walk the source-\/dir and get every file that contains code 
-
-\subsection{Variable Documentation}
-\hypertarget{treewalker_8hpp_adb078d66a95d2d71221a459b32b5e48e}{\index{treewalker.\-hpp@{treewalker.\-hpp}!H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S@{H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S}}
-\index{H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S@{H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S}!treewalker.hpp@{treewalker.\-hpp}}
-\subsubsection[{H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}const vector$<$string$>$ H\-E\-A\-D\-E\-R\-\_\-\-E\-N\-D\-I\-N\-G\-S}}\label{treewalker_8hpp_adb078d66a95d2d71221a459b32b5e48e}
-{\bfseries Initial value\-:}
-\begin{DoxyCode}
-\{
-        \textcolor{stringliteral}{"hpp"},\textcolor{stringliteral}{"hxx"},\textcolor{stringliteral}{"hh"},\textcolor{stringliteral}{"h"}
-\}
-\end{DoxyCode}
-all sane fileendings for headerfiles \hypertarget{treewalker_8hpp_aa12316237483ad4b163089c8c4f35412}{\index{treewalker.\-hpp@{treewalker.\-hpp}!I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S@{I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S}}
-\index{I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S@{I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S}!treewalker.hpp@{treewalker.\-hpp}}
-\subsubsection[{I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}const vector$<$string$>$ I\-M\-P\-L\-E\-M\-E\-N\-T\-A\-T\-I\-O\-N\-\_\-\-E\-N\-D\-I\-N\-G\-S}}\label{treewalker_8hpp_aa12316237483ad4b163089c8c4f35412}
-{\bfseries Initial value\-:}
-\begin{DoxyCode}
-\{
-        \textcolor{stringliteral}{"cpp"},\textcolor{stringliteral}{"cxx"},\textcolor{stringliteral}{"cc"},\textcolor{stringliteral}{"c"}
-\}
-\end{DoxyCode}
-all sane fileendings for files, that contain the actual code 
