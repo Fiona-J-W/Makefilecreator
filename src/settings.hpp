@@ -40,6 +40,7 @@ const option OPTIONS[]={
 	{"link-dir",required_argument,NULL,'L'},
 	{"include-dir",required_argument,NULL,'I'},
 	{"compiler-opts",required_argument,NULL,'O'},
+	{"pkg-libs", required_argument,NULL,'p'},
 	{0,0,0,0}
 };
 
@@ -143,6 +144,11 @@ struct settings{
 	 * all further compiler-options
 	 */
 	static list<string> compiler_opts;
+
+	/**
+	 * libs for pkg-config
+	 */
+	static list<string> pkg_libs;
 };
 
 

@@ -26,26 +26,28 @@ map<string,char> FILE_OPTS={
 	{"link-dir",'L'},
 	{"include-dir",'I'},
 	{"compiler-opts",'O'},
+	{"pkg-libs", 'p'},
 	{"import",'i'}
 };
 
 
 //Put the static members with some sane defaults here:
-list<path>    settings::header_files;
-list<path>    settings::implementation_files;
-string        settings::target                  = "a.out";
-string        settings::output                  = "makefile";
-path          settings::source_dir              = ".";
-path          settings::build_dir               = ".";
-list<path>    settings::ignore_files;
-vector<string>settings::header_endings          = { "hpp","hxx","hh","h" } ;
-vector<string>settings::implementation_endings  = { "cpp","cxx","cc","c" };
-string        settings::compiler                = "g++";
-bool          settings::compile                 = false;
-list<string>  settings::include_dirs;
-list<string>  settings::lib_dirs;
-list<string>  settings::libs;
-list<string>  settings::compiler_opts;
+list<path>     settings::header_files;
+list<path>     settings::implementation_files;
+string         settings::target                  = "a.out";
+string         settings::output                  = "makefile";
+path           settings::source_dir              = ".";
+path           settings::build_dir               = ".";
+list<path>     settings::ignore_files;
+vector<string> settings::header_endings          = { "hpp","hxx","hh","h" };
+vector<string> settings::implementation_endings  = { "cpp","cxx","cc","c" };
+string         settings::compiler                = "g++";
+bool           settings::compile                 = false;
+list<string>   settings::include_dirs;
+list<string>   settings::lib_dirs;
+list<string>   settings::libs;
+list<string>   settings::compiler_opts;
+list<string>   settings::pkg_libs;
 map<string,list<pair<char, string>>> settings::conditional_settings;
 
 
@@ -58,7 +60,6 @@ void settings::init(int argc, char **argv){
 		config_files.push_back( (path(conf_home) / "mfc/mfc.conf" ).string());
 	}
 	config_files.push_back("./mfc.conf");
-	;
 	
 	//parse config-files
 	for(auto c:config_files){
@@ -187,6 +188,8 @@ void settings::set_opt(char opt,string val){
 		case 'O':
 			compiler_opts.push_back(val);
 			break;
+		case 'p':
+			pkg_libs.push_back(val);
 		case 'f':
 		case 'i':
 			parse_file(val);

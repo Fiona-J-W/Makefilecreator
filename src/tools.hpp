@@ -7,6 +7,7 @@
 #include <list>
 #include <fstream>
 #include <set>
+#include <boost/filesystem.hpp>
 
 using namespace std;
 
@@ -50,7 +51,11 @@ ostream& operator<<(ostream &stream,list<T> t);
 template<typename T>
 list<T> remove_double(list<T> t);
 
-
+/**
+ * remove unneeded dots
+ * @param p the unclean path
+ */
+boost::filesystem::path clean_path(boost::filesystem::path p);
 
 //Public because templates are used:
 

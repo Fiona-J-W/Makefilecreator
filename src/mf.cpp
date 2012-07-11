@@ -5,6 +5,7 @@ using namespace std;
 
 #include "output.hpp"
 #include "settings.hpp"
+#include "tools.hpp"
 
 /// Replaces the fileending with new_ending
 string replace_ending(path file, string new_ending);
@@ -27,26 +28,32 @@ void write_settings(ofstream &output,path relative_dir, map<path,list<path>> dep
 	for(auto lib:settings::libs){
 		output<<"-l"<<lib<<" ";
 	}
+	for(auto lib:settings::pkg_libs){
+		output<<" $$( pkg-config --libs "<<lib<<" ) ";
+	}
 	output<<"\n";
 	
 	output<<"INCLUDES = ";
 	for(auto include:settings::include_dirs){
 		output<<"-I"<<include<<" ";
 	}
+	for(auto include:settings::pkg_libs){
+		output<<" $$( pkg-config --cflags "<< include <<" ) ";
+	}
 	output<<"\n";
 	
-	output<<"TARGET = "<<(relative_dir/settings::target).string()<<"\n";
+	output<<"TARGET = "<<(clean_path(relative_dir/settings::target)).string()<<"\n";
 	
 	output<<"OBJECTS =";//<<settings::includes<<endl;
 	if( dependencies.size() <= 3){
 		for(auto object:dependencies){
-			output<<" "<<replace_ending(relative_dir/settings::build_dir/(object.first.filename()),"o");
+			output<<" "<<replace_ending(clean_path(relative_dir/settings::build_dir/(object.first.filename())),"o");
 		}
 	}
 	else{
 		output << " \\\n";
 		for(auto object:dependencies){
-			output<<"\t"<<replace_ending(relative_dir/settings::build_dir/(object.first.filename()),"o")<<" \\\n";
+			output<<"\t"<<replace_ending(clean_path(relative_dir/settings::build_dir/(object.first.filename())),"o")<<" \\\n";
 		}
 	}
 	output<<"\n"<<endl;
@@ -59,14 +66,14 @@ void write_rules(ofstream &output,path relative_dir){
 	output<<"$(TARGET) : $(OBJECTS)\n"
 		<<"\t$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)\n"<<endl;
 	
-	path build_dir = relative_dir/settings::build_dir;
+	path build_dir = clean_path(relative_dir/settings::build_dir);
 	
 	output << build_dir.string() << "/%.o:\n";
 	if( build_dir != path(".") ){
-		output << "\t@if test ! -d "<< build_dir.string()
-		       << "; then mkdir "<< build_dir.string()
-		       << "; echo \"created "<< build_dir.string()
-		       << "\" ; fi"<<endl;
+		output << "\t@if test ! -d '"<< build_dir.string()
+		       << "'; then mkdir '"<< build_dir.string()
+		       << "'; echo \"created '"<< build_dir.string()
+		       << "'\" ; fi"<<endl;
 	}
 	output<<"\t$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<\n\n";
 	
@@ -78,13 +85,13 @@ void write_rules(ofstream &output,path relative_dir){
 void write_dependencies(ofstream &output,path relative_dir, map<path,list<path>> dependencies){
 	output<<"\n####################\n#Dependencies:\n\n"<<endl;
 	
-	path build_dir = relative_dir/settings::build_dir;
+	path build_dir = clean_path(relative_dir/settings::build_dir);
 	
 	for(auto rule:dependencies){
 		string obj_name=replace_ending(build_dir/rule.first.filename(),"o");
-		output<<obj_name<<": "<<(relative_dir/rule.first).relative_path().string()<<" ";
+		output<<obj_name<<": "<<clean_path(relative_dir/rule.first).relative_path().string()<<" ";
 		for(auto dep:rule.second){
-			output<<(relative_dir/dep).string()<<" ";
+			output<<clean_path(relative_dir/dep).string()<<" ";
 		}
 		//output<<"\n\t$(CC) $(CFLAGS) $(INCLUDES) -c "<<rule.first.string()<<" -o "<<obj_name<<"\n"<<endl;
 		output<<"\n\n";

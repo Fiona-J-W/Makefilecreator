@@ -39,3 +39,43 @@ pair<string,string> cut_once(string str, string delim){
 	
 	return data;
 }
+
+
+using namespace boost::filesystem;
+
+boost::filesystem::path clean_path(boost::filesystem::path p){
+	auto raw = cut( p.string(), "/");
+	list<string> dirs;
+	for(auto dir: raw){
+		if( dir == "." ){
+			continue;
+		}
+		else if( dir == ".." ){
+			if( dirs.size() > 0 ){
+				if( dirs.back() == ".." ){
+					dirs.push_back("..");
+				}
+				else{
+					dirs.pop_back();
+				}
+			}
+			else{
+				dirs.push_back("..");
+			}
+		}
+		else{
+			dirs.push_back(dir);
+		}
+	}
+	if( dirs.size() == 0 ){
+		return path();
+	}
+	else{
+		path returnpath(dirs.front());
+		dirs.pop_front();
+		for(auto x: dirs){
+			returnpath/=path(x);
+		}
+		return returnpath;
+	}
+}
