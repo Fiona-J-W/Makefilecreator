@@ -63,8 +63,9 @@ void write_settings(ofstream &output,path relative_dir, map<path,list<path>> dep
 void write_rules(ofstream &output,path relative_dir){
 	output<<"\n####################\n#Rules:\n\n\n";
 	
+	//be nice to ubuntu and put the libs to the end of the commandline m(
 	output<<"$(TARGET) : $(OBJECTS)\n"
-		<<"\t$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)\n"<<endl;
+		<<"\t$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(CLIBS)\n"<<endl;
 	
 	path build_dir = clean_path(relative_dir/settings::build_dir);
 	
