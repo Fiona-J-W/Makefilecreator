@@ -69,7 +69,7 @@ void write_rules(ofstream &output,path relative_dir){
 	path build_dir = clean_path(relative_dir/settings::build_dir);
 	
 	output << build_dir.string() << "/%.o:\n";
-	if( build_dir != path(".") ){
+	if( build_dir != path(".") && build_dir != path("") ){
 		output << "\t@if test ! -d '"<< build_dir.string()
 		       << "'; then mkdir '"<< build_dir.string()
 		       << "'; echo \"created '"<< build_dir.string()
@@ -77,7 +77,12 @@ void write_rules(ofstream &output,path relative_dir){
 	}
 	output<<"\t$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<\n\n";
 	
-	output<<"clean:\n\trm "<<build_dir.string()<<"/*.o\n\n";
+	if( build_dir != path("") ){
+		output<<"clean:\n\trm "<<build_dir.string()<<"/*.o\n\n";
+	}
+	else{
+		output<<"clean:\n\trm *.o\n\n";
+	}
 	
 	output<<"all: $(TARGET)\n"<<endl;
 }
@@ -100,20 +105,23 @@ void write_dependencies(ofstream &output,path relative_dir, map<path,list<path>>
 
 int create_makefile(map<path,list<path>> dependencies){
 	
-	path relative_path(".");
-	
-	ofstream output(settings::output.c_str());
-	
-	output<<"# Makefile for "<<settings::target<<"\n# created with makefile-creator\n\n";
-	
-	write_settings(output,relative_path,dependencies);
-	
-	write_rules(output,relative_path);
-	
-	write_dependencies(output,relative_path,dependencies);
-	
-	output.close();
-	
+	for(auto filename: cut(settings::output,",")){
+		debug(string("output=")+filename);
+		path relative_path(get_rel_path(path(strip(filename)),path(".")));
+		debug(string("relative path=")+relative_path.string(),2);
+		
+		ofstream output(strip(filename).c_str());
+		
+		output<<"# Makefile for "<<settings::target<<"\n# created with makefile-creator\n\n";
+		
+		write_settings(output,relative_path,dependencies);
+		
+		write_rules(output,relative_path);
+		
+		write_dependencies(output,relative_path,dependencies);
+		
+		output.close();
+	}
 	return 0;
 }
 

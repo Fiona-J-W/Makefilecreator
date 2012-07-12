@@ -23,7 +23,7 @@ mfc is designed to use intelligent defaults. However, not everything you might w
 Therefore it is of course possible to set severall things via commandline and config-files. These will be parsed in the following order:
 
 1. /etc/mfc/mfc.conf 
-2. ~/.config/mfc/mfc.conf 
+2. $XDG_CONFIG_HOME/.config/mfc/mfc.conf 
 3. ./mfc.conf 
 4. commandline 
 

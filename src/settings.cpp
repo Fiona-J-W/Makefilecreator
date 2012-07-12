@@ -119,9 +119,7 @@ void settings::parse_file(string filename){
 				                      tmp.second));
 			}
 			conditional_settings[name]=s;
-			if(!getline(file,line)){
-				break;
-			}
+			continue;
 		}
 		tmp=cut_once(line,"=");
 		string key=tmp.first;
@@ -132,6 +130,7 @@ void settings::parse_file(string filename){
 }
 
 void settings::set_opt(char opt,string val){
+	debug(string("set_opt(")+opt+", "+val+")");
 	switch(opt){
 		case 's':
 			source_dir=val;

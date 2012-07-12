@@ -4,8 +4,9 @@
 #include <string>
 using namespace std;
 
-#define ENABLE_DEBUG 0
+#define ENABLE_DEBUG 1
 
+#if ENABLE_DEBUG == 1
 /**
  * print a debug-message with priority level; this function is not to be called
  * from anywhere else than the debug function (we want this to be optimized out
@@ -22,6 +23,11 @@ void print_debug(string text, int level);
  */
 ///TODO: make this world-visible
 void debug(string text, int level=1);
+
+#else
+inline void debug(string,int){}
+inline void debug(string){}
+#endif
 
 
 

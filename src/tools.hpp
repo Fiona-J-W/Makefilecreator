@@ -10,6 +10,7 @@
 #include <boost/filesystem.hpp>
 
 using namespace std;
+using boost::filesystem::path;
 
 /**
  * checks whether val is in vec 
@@ -55,7 +56,14 @@ list<T> remove_double(list<T> t);
  * remove unneeded dots
  * @param p the unclean path
  */
-boost::filesystem::path clean_path(boost::filesystem::path p);
+path clean_path(path p);
+
+/**
+ * get a relative path that shows from startpath to target 
+ * @param startpath path from which the returnvalue will point to targetpath
+ * @param targetpath to which the relative path to target will be created
+ */
+path get_rel_path(path startpath, path targetpath = path("."));
 
 //Public because templates are used:
 

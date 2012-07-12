@@ -1,5 +1,6 @@
 #include "tools.hpp"
 #include <algorithm>
+#include "output.hpp"
 
 bool in(string val, const vector<string> &vec){
 	return std::find(vec.begin(),vec.end(),val) != vec.end();
@@ -41,9 +42,8 @@ pair<string,string> cut_once(string str, string delim){
 }
 
 
-using namespace boost::filesystem;
 
-boost::filesystem::path clean_path(boost::filesystem::path p){
+path clean_path(path p){
 	auto raw = cut( p.string(), "/");
 	list<string> dirs;
 	for(auto dir: raw){
@@ -78,4 +78,39 @@ boost::filesystem::path clean_path(boost::filesystem::path p){
 		}
 		return returnpath;
 	}
+}
+
+#include <iostream>
+using namespace std;
+
+path get_rel_path(path startpath, path targetpath){
+	path returnpath(".");
+	
+	debug(string("get_rel_path( ")+startpath.string()+" , "+targetpath.string()+" )",2);
+	
+	auto start_path_l  = cut( clean_path( absolute( startpath  ).remove_filename() ).string(), "/" );
+	auto target_path_l = cut( clean_path( absolute( targetpath ) ).string(), "/" );
+	
+	debug("absolute startpath="+ absolute(startpath).string(),3);
+	debug("absolute targetpath="+absolute(targetpath).string(),3);
+	size_t i=0;
+	for(; i<start_path_l.size() && i<target_path_l.size(); ++i){
+		if( start_path_l[i] == target_path_l[i] ){
+			debug(string("equal path (")+to_string(i)+"):"+target_path_l[i],4);
+			continue;
+		}
+		else{
+			break;
+		}
+	}
+	debug("i="+to_string(i),5);
+	for(size_t j=i;j<start_path_l.size();++j){
+		debug("j="+to_string(j)+"/"+to_string(start_path_l.size())+" „"+start_path_l[j]+"“",5);
+		if(start_path_l[i] != ".")
+			returnpath = path("..")/returnpath;
+	}
+	for(size_t j=i;j<target_path_l.size();++j){
+		returnpath/=target_path_l[j];
+	}
+	return returnpath;
 }

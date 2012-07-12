@@ -7,7 +7,7 @@
 
 
 CC = g++
-CFLAGS =  -Wall -Wextra -pedantic -std=c++11 
+CFLAGS =  -Wall -Wextra -pedantic -O3 -std=c++11 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = ../mfc
@@ -53,7 +53,7 @@ all: $(TARGET)
 
 ../build/settings.o: settings.cpp output.hpp settings.hpp tools.hpp 
 
-../build/tools.o: tools.cpp tools.hpp 
+../build/tools.o: tools.cpp output.hpp tools.hpp 
 
 ../build/treewalker.o: treewalker.cpp output.hpp settings.hpp tools.hpp treewalker.hpp 
 
