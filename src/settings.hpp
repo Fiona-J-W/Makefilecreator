@@ -92,9 +92,9 @@ struct settings{
 	static string output;
 	
 	/**
-	 * root-dir of the source:
+	 * root-dirs of the source:
 	 */
-	static path source_dir;
+	static list<path> source_dirs;
 	/**
 	 * directory for all the object-files:
 	 */

@@ -69,7 +69,12 @@ void write_rules(ofstream &output,path relative_dir){
 	
 	path build_dir = clean_path(relative_dir/settings::build_dir);
 	
-	output << build_dir.string() << "/%.o:\n";
+	if( build_dir != path("") ){
+		output << build_dir.string() << "/%.o:\n";
+	}
+	else{
+		output << "%.o:\n";
+	}
 	if( build_dir != path(".") && build_dir != path("") ){
 		output << "\t@if test ! -d '"<< build_dir.string()
 		       << "'; then mkdir '"<< build_dir.string()

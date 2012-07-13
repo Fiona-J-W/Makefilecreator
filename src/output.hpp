@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-#define ENABLE_DEBUG 1
+#define ENABLE_DEBUG 0
 
 #if ENABLE_DEBUG == 1
 /**
@@ -21,21 +21,19 @@ void print_debug(string text, int level);
  * @param text  debugmessage
  * @param level debuglevel (lower means less important)
  */
-///TODO: make this world-visible
 void debug(string text, int level=1);
-
-#else
-inline void debug(string,int){}
-inline void debug(string){}
-#endif
-
-
 
 /**
  * set the debug-level: only debug-messages with a level <= @param d will
  * be printed
  */
 void set_debug_level(int d);
+
+#else
+inline void debug(string,int){}
+inline void debug(string){}
+inline void set_debug_level(int){}
+#endif
 
 
 /**
@@ -46,7 +44,9 @@ void set_verbose_level(int v);
 
  
 /**
- * print a note with urgency-level @param level
+ * print a note with the given urgency-level 
+ * @param text the message
+ * @param level urgency-level ot the message
  */
 void note(string text, int level=1);
 

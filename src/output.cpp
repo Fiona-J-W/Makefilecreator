@@ -5,14 +5,9 @@
 using namespace std;
 
 static int verbose_level=0;
-static int debug_level=0;
 
 void set_verbose_level(int v){
 	verbose_level=v;
-}
-
-void set_debug_level(int d){
-	debug_level=d;
 }
 
 void note(string text, int level){
@@ -22,6 +17,7 @@ void note(string text, int level){
 }
 
 #if ENABLE_DEBUG == 1
+static int debug_level=0;
 void debug(string text, int level){
 	if( ENABLE_DEBUG ){
 		print_debug(text,level);
@@ -32,6 +28,10 @@ void print_debug(string text, int level){
 	if(level<=debug_level){
 		cout<<"DEBUG ("<<level<<"): "<<text<<endl;
 	}
+}
+
+void set_debug_level(int d){
+	debug_level=d;
 }
 #endif
 

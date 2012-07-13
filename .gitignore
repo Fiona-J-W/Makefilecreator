@@ -1,0 +1,9 @@
+*.o
+*~
+*.lock
+*.swp
+mfc
+build/
+test/
+
+!.gitignore

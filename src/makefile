@@ -27,7 +27,7 @@ OBJECTS = \
 
 
 $(TARGET) : $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(CLIBS)
+	$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)
 
 ../build/%.o:
 	@if test ! -d '../build'; then mkdir '../build'; echo "created '../build'" ; fi

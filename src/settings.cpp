@@ -36,7 +36,7 @@ list<path>     settings::header_files;
 list<path>     settings::implementation_files;
 string         settings::target                  = "a.out";
 string         settings::output                  = "makefile";
-path           settings::source_dir              = ".";
+list<path>     settings::source_dirs;
 path           settings::build_dir               = ".";
 list<path>     settings::ignore_files;
 vector<string> settings::header_endings          = { "hpp","hxx","hh","h" };
@@ -74,6 +74,9 @@ void settings::init(int argc, char **argv){
 	        OPTIONS,NULL)) != -1
 	){
 		set_opt(opt,optarg?optarg:"");
+	}
+	if( settings::source_dirs.size() == 0 ){
+		settings::source_dirs.push_back(path("."));
 	}
 }
 
@@ -133,7 +136,7 @@ void settings::set_opt(char opt,string val){
 	debug(string("set_opt(")+opt+", "+val+")");
 	switch(opt){
 		case 's':
-			source_dir=val;
+			source_dirs.push_back(path(val));
 			break;
 		case 'b':
 			build_dir=val;
@@ -157,7 +160,11 @@ void settings::set_opt(char opt,string val){
 			set_verbose_level(atoi(val.c_str()));
 			break;
 		case 'd':
-			set_debug_level(atoi(val.c_str()));
+			#if ENABLE_DEBUG == 1
+				set_debug_level(atoi(val.c_str()));
+			#else 
+				warn("This is not a debug-build, so debuging cannot be enabled");
+			#endif
 			break;
 		case 'u':
 			for(auto s:conditional_settings[val]){
