@@ -23,7 +23,7 @@ list<path> get_includes(path file){
 			if((pos=line.find('"'))==string::npos) continue;
 			line.erase(pos);
 			
-			path include=file_dir/path(line);
+			path include=clean_path(file_dir/path(line));
 			if(std::find(settings::header_files.begin(),
 			             settings::header_files.end(),include)
 			   == settings::header_files.end()

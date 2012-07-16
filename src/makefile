@@ -27,7 +27,7 @@ OBJECTS = \
 
 
 $(TARGET) : $(OBJECTS)
-	$(CC) $(CFLAGS) $(CLIBS) -o $(TARGET) $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(CLIBS)
 
 ../build/%.o:
 	@if test ! -d '../build'; then mkdir '../build'; echo "created '../build'" ; fi
@@ -43,17 +43,17 @@ all: $(TARGET)
 #Dependencies:
 
 
-../build/depcheck.o: depcheck.cpp depcheck.hpp settings.hpp tools.hpp 
+../build/depcheck.o: depcheck.cpp 
 
-../build/main.o: main.cpp depcheck.hpp mf.hpp output.hpp settings.hpp tools.hpp treewalker.hpp 
+../build/main.o: main.cpp 
 
-../build/mf.o: mf.cpp mf.hpp output.hpp settings.hpp tools.hpp 
+../build/mf.o: mf.cpp 
 
-../build/output.o: output.cpp output.hpp 
+../build/output.o: output.cpp 
 
-../build/settings.o: settings.cpp output.hpp settings.hpp tools.hpp 
+../build/settings.o: settings.cpp 
 
-../build/tools.o: tools.cpp output.hpp tools.hpp 
+../build/tools.o: tools.cpp 
 
-../build/treewalker.o: treewalker.cpp output.hpp settings.hpp tools.hpp treewalker.hpp 
+../build/treewalker.o: treewalker.cpp 
 
