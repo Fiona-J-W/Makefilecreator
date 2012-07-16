@@ -27,7 +27,7 @@ map<string,char> FILE_OPTS={
 	{"include-dir",'I'},
 	{"compiler-opts",'O'},
 	{"pkg-libs", 'p'},
-	{"import",'i'}
+	{"import",'f'}
 };
 
 
@@ -197,7 +197,6 @@ void settings::set_opt(char opt,string val){
 		case 'p':
 			pkg_libs.push_back(val);
 		case 'f':
-		case 'i':
 			parse_file(val);
 			break;
 		default:

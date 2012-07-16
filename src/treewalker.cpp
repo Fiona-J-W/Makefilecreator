@@ -39,10 +39,10 @@ void get_code_files(){
 			}
 			switch(analyse_file(*it)){
 				case HEADER:
-					settings::header_files.push_back(*it);
+					settings::header_files.push_back(clean_path(*it));
 					break;
 				case IMPL:
-					settings::implementation_files.push_back(*it);
+					settings::implementation_files.push_back(clean_path(*it));
 					break;
 				case OTHER:
 					break;
