@@ -14,9 +14,14 @@ using namespace boost::filesystem;
 #include "mf.hpp"
 #include "tools.hpp"
 #include "output.hpp"
+#include "help.hpp"
 
 
 int main(int argc, char **argv){
+	if(argc == 2 && ( argv[1] == string("-h") || argv[1] == string("--help") ) ){
+		print_help(argv[0]);
+		return 0;
+	}
 	settings::init(argc, argv);
 	debug("settings read",1);
 	get_code_files();
