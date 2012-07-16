@@ -95,6 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;list&gt;</code><br/>
 <code>#include &lt;fstream&gt;</code><br/>
 <code>#include &lt;set&gt;</code><br/>
+<code>#include &lt;boost/filesystem.hpp&gt;</code><br/>
 </div>
 <p><a href="tools_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -108,8 +109,33 @@ Functions</h2></td></tr>
 <tr class="memitem:aa0b593797b026d814dc80c63b6b6ce00"><td class="memTemplItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tools_8hpp.html#aa0b593797b026d814dc80c63b6b6ce00">operator&lt;&lt;</a> (ostream &amp;stream, list&lt; T &gt; t)</td></tr>
 <tr class="memitem:aad6b41f3be3d2fad34530c984f83d474"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aad6b41f3be3d2fad34530c984f83d474"><td class="memTemplItemLeft" align="right" valign="top">list&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tools_8hpp.html#aad6b41f3be3d2fad34530c984f83d474">remove_double</a> (list&lt; T &gt; t)</td></tr>
+<tr class="memitem:a99c8122ee9b782518a77eee5f1cf2d36"><td class="memItemLeft" align="right" valign="top">path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8hpp.html#a99c8122ee9b782518a77eee5f1cf2d36">clean_path</a> (path p)</td></tr>
+<tr class="memitem:a5049d8ec58f820c85a1bdc2c565651fc"><td class="memItemLeft" align="right" valign="top">path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8hpp.html#a5049d8ec58f820c85a1bdc2c565651fc">get_rel_path</a> (path startpath, path targetpath=path(&quot;.&quot;))</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a99c8122ee9b782518a77eee5f1cf2d36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">path clean_path </td>
+          <td>(</td>
+          <td class="paramtype">path&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>remove unneeded dots </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the unclean path </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="acd5b5461e7b9003e5899ad41005128bc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -172,6 +198,40 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">str</td><td>string to be cut </td></tr>
     <tr><td class="paramname">delim</td><td>delimeter that marks the cutline </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5049d8ec58f820c85a1bdc2c565651fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">path get_rel_path </td>
+          <td>(</td>
+          <td class="paramtype">path&#160;</td>
+          <td class="paramname"><em>startpath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">path&#160;</td>
+          <td class="paramname"><em>targetpath</em> = <code>path(&quot;.&quot;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>get a relative path that shows from startpath to target </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startpath</td><td>path from which the returnvalue will point to targetpath </td></tr>
+    <tr><td class="paramname">targetpath</td><td>to which the relative path to target will be created </td></tr>
   </table>
   </dd>
 </dl>
@@ -292,7 +352,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 23 2012 00:25:44 for Makefilecreator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 16 2012 18:08:39 for Makefilecreator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

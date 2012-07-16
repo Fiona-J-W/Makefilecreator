@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['clean_5fpath',['clean_path',['../tools_8cpp.html#a99c8122ee9b782518a77eee5f1cf2d36',1,'clean_path(path p):&#160;tools.cpp'],['../tools_8hpp.html#a99c8122ee9b782518a77eee5f1cf2d36',1,'clean_path(path p):&#160;tools.cpp']]],
   ['compile',['compile',['../structsettings.html#a575bd5aad5894fe2b1a9c110506c4a0a',1,'settings']]],
   ['compiler',['compiler',['../structsettings.html#a208883e6fc65f3abafbfec8ca0d4989d',1,'settings']]],
   ['compiler_5fopts',['compiler_opts',['../structsettings.html#a5b9460853aa54ea3e48db46744122d54',1,'settings']]],

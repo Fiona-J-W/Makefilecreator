@@ -100,10 +100,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a754aaf62d0ee63c06fbb665a3f114ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a754aaf62d0ee63c06fbb665a3f114ce8">print_debug</a> (string text, int level)</td></tr>
-<tr class="memitem:a96acd905f46e4d0c84658326e9aa8f07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a96acd905f46e4d0c84658326e9aa8f07">debug</a> (string text, int level=1)</td></tr>
-<tr class="memdesc:a96acd905f46e4d0c84658326e9aa8f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: make this world-visible.  <a href="#a96acd905f46e4d0c84658326e9aa8f07"></a><br/></td></tr>
-<tr class="memitem:a9eb498c240aa53961496d044fe430782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a9eb498c240aa53961496d044fe430782">set_debug_level</a> (int d)</td></tr>
+<tr class="memitem:a07d0c49ac5774fd624f6a26935ab56e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a07d0c49ac5774fd624f6a26935ab56e1">debug</a> (string, int)</td></tr>
+<tr class="memitem:a1db26f7bbab288cb8c748c5775be694f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a1db26f7bbab288cb8c748c5775be694f">debug</a> (string)</td></tr>
+<tr class="memitem:a78a7566a20fc6f4aeb4d65b9ff03ed26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a78a7566a20fc6f4aeb4d65b9ff03ed26">set_debug_level</a> (int)</td></tr>
 <tr class="memitem:acda6c4ca4356f6fa366ddd24d39daf30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#acda6c4ca4356f6fa366ddd24d39daf30">set_verbose_level</a> (int v)</td></tr>
 <tr class="memitem:adb9fae948cc0cb7d451551a12852f369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#adb9fae948cc0cb7d451551a12852f369">note</a> (string text, int level=1)</td></tr>
 <tr class="memitem:a46ec89c0466b3d2503f2d1b1cee73b4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a46ec89c0466b3d2503f2d1b1cee73b4d">warn</a> (string text)</td></tr>
@@ -124,21 +123,24 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a96acd905f46e4d0c84658326e9aa8f07"></a>
+<a class="anchor" id="a07d0c49ac5774fd624f6a26935ab56e1"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void debug </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>text</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em> = <code>1</code>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -146,17 +148,36 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>TODO: make this world-visible. </p>
-<p>print a debugmessage; this won't do anything in release-builds </p>
-<dl class="params"><dt>Parameters:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">text</td><td>debugmessage </td></tr>
-    <tr><td class="paramname">level</td><td>debuglevel (lower means less important) </td></tr>
-  </table>
-  </dd>
-</dl>
+</div>
+</div>
+<a class="anchor" id="a1db26f7bbab288cb8c748c5775be694f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void debug </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -217,70 +238,38 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>print a note with urgency-level </p>
+<p>print a note with the given urgency-level </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">text</td><td>the message </td></tr>
+    <tr><td class="paramname">level</td><td>urgency-level ot the message </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a754aaf62d0ee63c06fbb665a3f114ce8"></a>
+<a class="anchor" id="a78a7566a20fc6f4aeb4d65b9ff03ed26"></a>
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_debug </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>text</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>print a debug-message with priority level; this function is not to be called from anywhere else than the debug function (we want this to be optimized out in release-builds) </p>
-<dl class="params"><dt>Parameters:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">text</td><td>debugmessage </td></tr>
-    <tr><td class="paramname">level</td><td>debuglevel (lower means less important) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a9eb498c240aa53961496d044fe430782"></a>
-<div class="memitem">
-<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void set_debug_level </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>set the debug-level: only debug-messages with a level &lt;= </p>
-<dl class="params"><dt>Parameters:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>will be printed </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -327,7 +316,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 23 2012 00:25:44 for Makefilecreator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 16 2012 18:08:39 for Makefilecreator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['source_5fdir',['source_dir',['../structsettings.html#a60c9f664edda432102c9975131edfa1e',1,'settings']]]
+  ['source_5fdirs',['source_dirs',['../structsettings.html#a7d26eefe83cfa90537467cf3e43401d0',1,'settings']]]
 ];

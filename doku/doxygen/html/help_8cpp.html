@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Makefilecreator: /home/florian/Entwicklung/C++/makefile_creator/src/settings.hpp File Reference</title>
+<title>Makefilecreator: /home/florian/Entwicklung/C++/makefile_creator/src/help.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,62 +84,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">settings.hpp File Reference</div>  </div>
+<div class="title">help.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;list&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &lt;boost/filesystem.hpp&gt;</code><br/>
-<code>#include &lt;getopt.h&gt;</code><br/>
-</div>
-<p><a href="settings_8hpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsettings.html">settings</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a94c0f98c74df2bf1853b5ba6946ad4ae"><td class="memItemLeft" align="right" valign="top">const option&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="settings_8hpp.html#a94c0f98c74df2bf1853b5ba6946ad4ae">OPTIONS</a> []</td></tr>
+<div class="textblock"><code>#include &quot;<a class="el" href="help_8hpp_source.html">help.hpp</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a79a435141ab933ae1072d162982e30a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="help_8cpp.html#a79a435141ab933ae1072d162982e30a4">print_help</a> (string name)</td></tr>
 </table>
-<hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="a94c0f98c74df2bf1853b5ba6946ad4ae"></a>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a79a435141ab933ae1072d162982e30a4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const option OPTIONS[]</td>
+          <td class="memname">void print_help </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">        {<span class="stringliteral">&quot;source-dir&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;s&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;build-dir&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;b&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;target&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;t&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;output&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;o&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;config-file&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;f&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;verbose&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;v&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;debug&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;d&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;use&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;u&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;ignore&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;w&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;header&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;H&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;header-ending&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;e&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;impl-ending&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;E&#39;</span>},</div>
-<div class="line">        </div>
-<div class="line">        {<span class="stringliteral">&quot;compiler&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;c&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;compile&quot;</span>,no_argument,NULL,<span class="charliteral">&#39;C&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;link&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;l&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;link-dir&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;L&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;include-dir&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;I&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;compiler-opts&quot;</span>,required_argument,NULL,<span class="charliteral">&#39;O&#39;</span>},</div>
-<div class="line">        {<span class="stringliteral">&quot;pkg-libs&quot;</span>, required_argument,NULL,<span class="charliteral">&#39;p&#39;</span>},</div>
-<div class="line">        {0,0,0,0}</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>commandline-options: </p>
 
 </div>
 </div>
