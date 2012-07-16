@@ -29,6 +29,7 @@ void print_help(string name){
 	<< "  -f, --config-file=file     treat the given file as config-file\n"
 	<< "  -u, --use=label            use a set of labeled settings\n"
 	<< "  -O, --compiler-opts=opts   pass some options to the compiler\n"
+	<< "  -p, --pkg-libs=libname     use a libraries pkg-config to include it\n"
 	<<endl;
 }
 

@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: mfc
 .\"    Author: [see the "AUTHOR" section]
-.\" Generator: DocBook XSL Stylesheets v1.77.0 <http://docbook.sf.net/>
-.\"      Date: 06/23/2012
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 07/16/2012
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "MFC" "1" "06/23/2012" "\ \&" "\ \&"
+.TH "MFC" "1" "07/16/2012" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -57,7 +57,7 @@ mfc is designed to use intelligent defaults\&. However, not everything you might
 .sp -1
 .IP "  2." 4.2
 .\}
-~/\&.config/mfc/mfc\&.conf
+$XDG_CONFIG_HOME/\&.config/mfc/mfc\&.conf
 .RE
 .sp
 .RS 4
@@ -89,7 +89,7 @@ If not noted otherwise all ways are sharing most of the commands, except for the
 .PP
 \fB\-s, \-\-source\-dir\fR
 .RS 4
-Sets the root\-directory, that contains all your codefiles (those may be in subdirectories though)\&. The defualt is the current directory\&.
+add a source\-directory\&. The default is the current directory\&.
 .RE
 .PP
 \fB\-b, \-\-build\-dir\fR
@@ -99,12 +99,12 @@ Set the build\-directory, where all object\-files are stored\&. The defualt is t
 .PP
 \fB\-t, \-\-target\fR
 .RS 4
-Set the target\-file\&. This has to be done anywhere, because there is no default\&.
+Set the target\-file\&. The default is a\&.out\&.
 .RE
 .PP
 \fB\-o, \-\-output\fR
 .RS 4
-Set the output of mfc\&. The default is \(lqmakefile\(rq\&. This must not be outside the current directory\&.
+Set the output of mfc\&. The default is \(lqmakefile\(rq\&. There may be more than one outputs, seperated by commas
 .RE
 .PP
 \fB\-v, \-\-verbose\fR
@@ -114,7 +114,7 @@ Set the level of verbosity\&. The default is 0, which means nearly no output
 .PP
 \fB\-d, \-\-debug\fR
 .RS 4
-Set the debug level\&.
+Set the debug level\&. (only works in debug\-builds)
 .RE
 .PP
 \fB\-e, \-\-header\-ending\fR
@@ -175,6 +175,11 @@ Use the given config\-set\&.
 \fB\-O, \-\-compiler\-opts\fR
 .RS 4
 add a compile\-option\&.
+.RE
+.PP
+\fB\-p, \-\-pkg\-libs\fR
+.RS 4
+use the pkg\-configuration of a library\&.
 .RE
 .SH "BUGS"
 .sp

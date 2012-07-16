@@ -36,24 +36,23 @@ OPTIONS
 ~~~~~~
 
 *-s, --source-dir*::
-	Sets the root-directory, that contains all your codefiles (those may be in subdirectories though).
-	The defualt is the current directory.
+	add a source-directory. The default is the current directory.
 
 *-b, --build-dir*::
 	Set the build-directory, where all object-files are stored.
 	The defualt is the current directory.
 
 *-t, --target*::
-	Set the target-file. This has to be done anywhere, because there is no default.
+	Set the target-file. The default is a.out.
 
 *-o, --output*::
-	Set the output of mfc. The default is “makefile”. This must not be outside the current directory.
+	Set the output of mfc. The default is “makefile”. There may be more than one outputs, seperated by commas
 
 *-v, --verbose*::
 	Set the level of verbosity. The default is 0, which means nearly no output
 
 *-d, --debug*::
-	Set the debug level. 
+	Set the debug level. (only works in debug-builds)
 
 *-e, --header-ending*::
 	add a fileending that indicates a headerfile 
@@ -90,6 +89,9 @@ OPTIONS
 
 *-O, --compiler-opts*::
 	add a compile-option.
+
+*-p, --pkg-libs*::
+	use the pkg-configuration of a library.
 
 BUGS
 ----
