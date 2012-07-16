@@ -1,4 +1,4 @@
-# Makefile for ../mfc
+# Makefile for ../bin/mfc
 # created with makefile-creator
 
 
@@ -10,9 +10,10 @@ CC = g++
 CFLAGS =  -Wall -Wextra -pedantic -O3 -std=c++11 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
-TARGET = mfc
+TARGET = bin/mfc
 OBJECTS = \
 	build/depcheck.o \
+	build/help.o \
 	build/main.o \
 	build/mf.o \
 	build/output.o \
@@ -45,7 +46,9 @@ all: $(TARGET)
 
 build/depcheck.o: src/depcheck.cpp src/depcheck.hpp src/settings.hpp src/tools.hpp 
 
-build/main.o: src/main.cpp src/depcheck.hpp src/mf.hpp src/output.hpp src/settings.hpp src/tools.hpp src/treewalker.hpp 
+build/help.o: src/help.cpp src/help.hpp 
+
+build/main.o: src/main.cpp src/depcheck.hpp src/help.hpp src/mf.hpp src/output.hpp src/settings.hpp src/tools.hpp src/treewalker.hpp 
 
 build/mf.o: src/mf.cpp src/mf.hpp src/output.hpp src/settings.hpp src/tools.hpp 
 
