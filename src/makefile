@@ -7,7 +7,7 @@
 
 
 CC = g++
-CFLAGS =  -Wall -Wextra -pedantic -O3 -std=c++11 
+CFLAGS =  -Wall -Wextra -pedantic -O3 -std=c++11 -O0 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = ../bin/mfc
@@ -44,7 +44,7 @@ all: $(TARGET)
 #Dependencies:
 
 
-../build/depcheck.o: depcheck.cpp depcheck.hpp settings.hpp tools.hpp 
+../build/depcheck.o: depcheck.cpp depcheck.hpp output.hpp settings.hpp tools.hpp 
 
 ../build/help.o: help.cpp help.hpp 
 

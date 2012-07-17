@@ -16,7 +16,6 @@ BUGS
 Should be done
 --------------
 * consistent makefiles (independent, from where you create them)
-* detection of circular include-dependencies
 
 Nice to have
 ------------

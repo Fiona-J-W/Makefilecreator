@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-#define ENABLE_DEBUG 0
+#define ENABLE_DEBUG 1
 
 #if ENABLE_DEBUG == 1
 /**
