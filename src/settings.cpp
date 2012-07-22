@@ -196,6 +196,7 @@ void settings::set_opt(char opt,string val){
 			break;
 		case 'p':
 			pkg_libs.push_back(val);
+			break;
 		case 'f':
 			parse_file(val);
 			break;
