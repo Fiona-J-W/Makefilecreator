@@ -11,11 +11,12 @@ Maintargets
 
 BUGS
 ----
-* relative dirs are wrong, if '/' is the common root
+* relative dirs are wrong if '/' is the common root
 
 Should be done
 --------------
 * consistent makefiles (independent, from where you create them)
+* check for existence of targetdir
 
 Nice to have
 ------------
@@ -28,4 +29,4 @@ Nice to have
 
 Won't implement
 ---------------
-* High-Level-scripting (use cmake, if your project is that big)
+* High-Level-scripting (use cmake if your project is that big)

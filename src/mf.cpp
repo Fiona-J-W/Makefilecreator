@@ -112,9 +112,9 @@ void write_dependencies(ofstream &output,path relative_dir, map<path,list<path>>
 int create_makefile(map<path,list<path>> dependencies){
 	
 	for(auto filename: cut(settings::output,",")){
-		debug(string("output=")+filename);
+		debug(1, string("output=")+filename);
 		path relative_path(get_rel_path(path(strip(filename)),path(".")));
-		debug(string("relative path=")+relative_path.string(),2);
+		debug(2, string("relative path=")+relative_path.string());
 		
 		ofstream output(strip(filename).c_str());
 		

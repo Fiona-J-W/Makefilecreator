@@ -10,9 +10,9 @@ using namespace std;
 #include "output.hpp"
 
 list<path> get_includes(path file, set<path>& touched_files){
-	debug("reading dependencies for „"+file.string()+"“",3);
+	debug(3,"reading dependencies for „"+file.string()+"“");
 	if( touched_files.count(file) ){
-		debug("\tfile is already known",4);
+		debug(4, "\tfile is already known");
 		return list<path>();
 	}
 	else{
@@ -23,10 +23,10 @@ list<path> get_includes(path file, set<path>& touched_files){
 	ifstream filestream(file.c_str());
 	path file_dir=file.parent_path();
 	while(getline(filestream,line)){
-		strip(line);
-		if(line.find("#include")==0){
+		line = strip(line);
+		if(line[0]=='#' && strip(line.substr(1)).find("include")==0){
 			line.erase(0,sizeof("#include"));
-			strip(line);
+			line = strip(line);
 			if(line[0]!='"') continue;
 			line.erase(0,1);
 			size_t pos;

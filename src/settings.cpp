@@ -39,7 +39,7 @@ string         settings::output                  = "makefile";
 list<path>     settings::source_dirs;
 path           settings::build_dir               = ".";
 list<path>     settings::ignore_files;
-vector<string> settings::header_endings          = { "hpp","hxx","hh","h" };
+vector<string> settings::header_endings          = { "hpp","hxx","hh","h", "tcc" };
 vector<string> settings::implementation_endings  = { "cpp","cxx","cc","c" };
 string         settings::compiler                = "g++";
 bool           settings::compile                 = false;
@@ -70,7 +70,7 @@ void settings::init(int argc, char **argv){
 	
 	//parse commandline-opts:
 	int opt;
-	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:H:e:E:c:d:v:l:L:I:O:C",
+	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:H:e:E:c:d:v:l:L:I:O:Cf:",
 	        OPTIONS,NULL)) != -1
 	){
 		set_opt(opt,optarg?optarg:"");
@@ -90,7 +90,7 @@ void settings::parse_file(string filename){
 	string line;
 	pair<string,string> tmp;
 	while(getline(file,line)){
-		strip(line);
+		line = strip(line);
 		if(line[0]=='#'){
 			continue;
 		}
@@ -100,14 +100,14 @@ void settings::parse_file(string filename){
 		if(line.find("set ")==0){
 			list<pair<char, string>> s;
 			string name=line.substr(4);
-			strip(name);
+			name = strip(name);
 			size_t pos=min(name.find(' '),name.find('{'));
 			if(pos!=string::npos){
 				name.erase(pos);
 			}
 			
 			while(getline(file,line)){
-				strip(line);
+				line = strip(line);
 				if(line.find("}")==0){
 					break;
 				}
@@ -133,7 +133,7 @@ void settings::parse_file(string filename){
 }
 
 void settings::set_opt(char opt,string val){
-	debug(string("set_opt(")+opt+", "+val+")");
+	debug(1, string("set_opt(")+opt+", "+val+")");
 	switch(opt){
 		case 's':
 			source_dirs.push_back(path(val));
@@ -160,7 +160,7 @@ void settings::set_opt(char opt,string val){
 			set_verbose_level(atoi(val.c_str()));
 			break;
 		case 'd':
-			#if ENABLE_DEBUG == 1
+			#ifdef DEBUG
 				set_debug_level(atoi(val.c_str()));
 			#else 
 				warn("This is not a debug-build, so debuging cannot be enabled");
@@ -173,7 +173,7 @@ void settings::set_opt(char opt,string val){
 			break;
 		case 'w':
 			ignore_files.push_back(path(val));
-			debug("added „"+val+"“ to ignore-list",4);
+			debug(4, "added „"+val+"“ to ignore-list");
 			break;
 		case 'H':
 			ignore_files.push_back(path(val));

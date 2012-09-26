@@ -28,12 +28,12 @@ void get_code_files(){
 	for(auto source_dir: settings::source_dirs){
 		recursive_directory_iterator it(source_dir);
 		while(it!=recursive_directory_iterator()){
-			debug("Checking filetype of "+path(*it).string(),3);
+			debug(3, "Checking filetype of "+path(*it).string());
 			if(find(settings::ignore_files.begin(),
 				settings::ignore_files.end(),*it)
 				!= settings::ignore_files.end()
 			){
-				debug("ignored "+path(*it).string(),2);
+				debug(2, "ignored "+path(*it).string());
 				++it;
 				continue;
 			}

@@ -22,7 +22,7 @@ vector<string> cut(string str, string delim){
 }
 
 
-string strip(string &str){
+string strip(string str){
 	size_t pos=0;
 	while(str[pos]==' '||str[pos]=='\t'){
 		++pos;
@@ -86,26 +86,26 @@ using namespace std;
 path get_rel_path(path startpath, path targetpath){
 	path returnpath(".");
 	
-	debug(string("get_rel_path( ")+startpath.string()+" , "+targetpath.string()+" )",2);
+	debug(2, string("get_rel_path( ")+startpath.string()+" , "+targetpath.string()+" )");
 	
 	auto start_path_l  = cut( clean_path( absolute( startpath  ).remove_filename() ).string(), "/" );
 	auto target_path_l = cut( clean_path( absolute( targetpath ) ).string(), "/" );
 	
-	debug("absolute startpath="+ absolute(startpath).string(),3);
-	debug("absolute targetpath="+absolute(targetpath).string(),3);
+	debug(3, "absolute startpath="+ absolute(startpath).string());
+	debug(3, "absolute targetpath="+absolute(targetpath).string());
 	size_t i=0;
 	for(; i<start_path_l.size() && i<target_path_l.size(); ++i){
 		if( start_path_l[i] == target_path_l[i] ){
-			debug(string("equal path (")+to_string(i)+"):"+target_path_l[i],4);
+			debug(4, string("equal path (")+to_string(i)+"):"+target_path_l[i]);
 			continue;
 		}
 		else{
 			break;
 		}
 	}
-	debug("i="+to_string(i),5);
+	debug(5, "i="+to_string(i));
 	for(size_t j=i;j<start_path_l.size();++j){
-		debug("j="+to_string(j)+"/"+to_string(start_path_l.size())+" „"+start_path_l[j]+"“",5);
+		debug(5, "j="+to_string(j)+"/"+to_string(start_path_l.size())+" „"+start_path_l[j]+"“");
 		if(start_path_l[i] != ".")
 			returnpath = path("..")/returnpath;
 	}
@@ -113,4 +113,11 @@ path get_rel_path(path startpath, path targetpath){
 		returnpath/=target_path_l[j];
 	}
 	return returnpath;
+}
+
+
+
+//path simplify_rel_path(path relpath, path startpath){
+path simplify_rel_path(path, path){
+	return path();
 }

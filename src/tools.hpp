@@ -35,7 +35,7 @@ pair<string,string> cut_once(string str, string delim="=");
  * clean whitespace from the beginning of str 
  * @param str string to be stripped
  */
-string strip(string &str);
+string strip(string str);
 
 /**
  * write t to stream:
@@ -58,12 +58,22 @@ list<T> remove_double(list<T> t);
  */
 path clean_path(path p);
 
+
 /**
  * get a relative path that shows from startpath to target 
  * @param startpath path from which the returnvalue will point to targetpath
  * @param targetpath to which the relative path to target will be created
  */
 path get_rel_path(path startpath, path targetpath = path("."));
+
+/**
+ * simplify a relative path
+ * @param relpath relative path
+ * @param startpath path from which relpath is relative
+ */
+path simplify_rel_path(path relpath, path startpath);
+
+
 
 //Public because templates are used:
 

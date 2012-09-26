@@ -1,4 +1,4 @@
-# Makefile for ../bin/mfc
+# Makefile for bin/mfc
 # created with makefile-creator
 
 
@@ -44,19 +44,19 @@ all: $(TARGET)
 #Dependencies:
 
 
-build/depcheck.o: src/depcheck.cpp src/depcheck.hpp src/settings.hpp src/tools.hpp 
+build/depcheck.o: src/depcheck.cpp src/depcheck.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp 
 
 build/help.o: src/help.cpp src/help.hpp 
 
-build/main.o: src/main.cpp src/depcheck.hpp src/help.hpp src/mf.hpp src/output.hpp src/settings.hpp src/tools.hpp src/treewalker.hpp 
+build/main.o: src/main.cpp src/depcheck.hpp src/help.hpp src/mf.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp src/treewalker.hpp 
 
-build/mf.o: src/mf.cpp src/mf.hpp src/output.hpp src/settings.hpp src/tools.hpp 
+build/mf.o: src/mf.cpp src/mf.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp 
 
-build/output.o: src/output.cpp src/output.hpp 
+build/output.o: src/output.cpp src/output.hpp src/output.tcc 
 
-build/settings.o: src/settings.cpp src/output.hpp src/settings.hpp src/tools.hpp 
+build/settings.o: src/settings.cpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp 
 
-build/tools.o: src/tools.cpp src/output.hpp src/tools.hpp 
+build/tools.o: src/tools.cpp src/output.hpp src/output.tcc src/tools.hpp 
 
-build/treewalker.o: src/treewalker.cpp src/output.hpp src/settings.hpp src/tools.hpp src/treewalker.hpp 
+build/treewalker.o: src/treewalker.cpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp src/treewalker.hpp 
 

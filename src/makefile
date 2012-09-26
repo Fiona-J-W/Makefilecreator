@@ -1,4 +1,4 @@
-# Makefile for ../bin/mfc
+# Makefile for bin/mfc
 # created with makefile-creator
 
 
@@ -7,7 +7,7 @@
 
 
 CC = g++
-CFLAGS =  -Wall -Wextra -pedantic -O3 -std=c++11 -O0 
+CFLAGS =  -Wall -Wextra -pedantic -O3 -std=c++11 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = ../bin/mfc
@@ -44,19 +44,19 @@ all: $(TARGET)
 #Dependencies:
 
 
-../build/depcheck.o: depcheck.cpp depcheck.hpp output.hpp settings.hpp tools.hpp 
+../build/depcheck.o: ../src/depcheck.cpp ../src/depcheck.hpp ../src/output.hpp ../src/output.tcc ../src/settings.hpp ../src/tools.hpp 
 
-../build/help.o: help.cpp help.hpp 
+../build/help.o: ../src/help.cpp ../src/help.hpp 
 
-../build/main.o: main.cpp depcheck.hpp help.hpp mf.hpp output.hpp settings.hpp tools.hpp treewalker.hpp 
+../build/main.o: ../src/main.cpp ../src/depcheck.hpp ../src/help.hpp ../src/mf.hpp ../src/output.hpp ../src/output.tcc ../src/settings.hpp ../src/tools.hpp ../src/treewalker.hpp 
 
-../build/mf.o: mf.cpp mf.hpp output.hpp settings.hpp tools.hpp 
+../build/mf.o: ../src/mf.cpp ../src/mf.hpp ../src/output.hpp ../src/output.tcc ../src/settings.hpp ../src/tools.hpp 
 
-../build/output.o: output.cpp output.hpp 
+../build/output.o: ../src/output.cpp ../src/output.hpp ../src/output.tcc 
 
-../build/settings.o: settings.cpp output.hpp settings.hpp tools.hpp 
+../build/settings.o: ../src/settings.cpp ../src/output.hpp ../src/output.tcc ../src/settings.hpp ../src/tools.hpp 
 
-../build/tools.o: tools.cpp output.hpp tools.hpp 
+../build/tools.o: ../src/tools.cpp ../src/output.hpp ../src/output.tcc ../src/tools.hpp 
 
-../build/treewalker.o: treewalker.cpp output.hpp settings.hpp tools.hpp treewalker.hpp 
+../build/treewalker.o: ../src/treewalker.cpp ../src/output.hpp ../src/output.tcc ../src/settings.hpp ../src/tools.hpp ../src/treewalker.hpp 
 

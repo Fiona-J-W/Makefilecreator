@@ -23,22 +23,22 @@ int main(int argc, char **argv){
 		return 0;
 	}
 	settings::init(argc, argv);
-	debug("settings read",1);
+	debug(1, "settings read");
 	get_code_files();
-	debug("got list of code-files",1);
+	debug(1, "got list of code-files");
 	
 	map<path,list<path>> dependencies;
-	debug("starting to read dependencies",1);
+	debug(1, "starting to read dependencies");
 	for(auto x : settings::implementation_files){
-		debug("reading dependencies for "+x.string(),2);
+		debug(2, "reading dependencies for "+x.string());
 		dependencies[x]=get_deps(x);
-		debug("done reading dependencies for "+x.string(),4);
+		debug(4, "done reading dependencies for "+x.string());
 	}
-	debug("done reading all dependencies",1);
-	debug("creating makefile",1);
+	debug(1, "done reading all dependencies");
+	debug(1, "creating makefile");
 	create_makefile(dependencies);
 	if(settings::compile){
-		debug("compiling",1);
+		debug(1, "compiling");
 		system("make");
 	}
 	
