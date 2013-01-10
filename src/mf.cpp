@@ -10,7 +10,7 @@ using namespace std;
 /// Replaces the fileending with new_ending
 string replace_ending(path file, string new_ending);
 
-void write_settings(ofstream &output,path relative_dir, map<path,list<path>> dependencies){
+void write_settings(ofstream &output,path relative_dir, map<path,vector<path>> dependencies){
 	output<<"\n####################\n#Settings:\n\n\n";
 	
 	output<<"CC = "<<settings::compiler<<"\n";
@@ -93,7 +93,7 @@ void write_rules(ofstream &output,path relative_dir){
 	output<<"all: $(TARGET)\n"<<endl;
 }
 
-void write_dependencies(ofstream &output,path relative_dir, map<path,list<path>> dependencies){
+void write_dependencies(ofstream &output,path relative_dir, map<path,vector<path>> dependencies){
 	output<<"\n####################\n#Dependencies:\n\n"<<endl;
 	
 	path build_dir = clean_path(relative_dir/settings::build_dir);
@@ -109,7 +109,7 @@ void write_dependencies(ofstream &output,path relative_dir, map<path,list<path>>
 	}
 }
 
-int create_makefile(map<path,list<path>> dependencies){
+int create_makefile(map<path,vector<path>> dependencies){
 	
 	for(auto filename: cut(settings::output,",")){
 		debug(1, string("output=")+filename);

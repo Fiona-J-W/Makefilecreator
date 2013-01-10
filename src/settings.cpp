@@ -32,23 +32,23 @@ map<string,char> FILE_OPTS={
 
 
 //Put the static members with some sane defaults here:
-list<path>     settings::header_files;
-list<path>     settings::implementation_files;
+vector<path>     settings::header_files;
+vector<path>     settings::implementation_files;
 string         settings::target                  = "a.out";
 string         settings::output                  = "makefile";
-list<path>     settings::source_dirs;
+vector<path>     settings::source_dirs;
 path           settings::build_dir               = ".";
-list<path>     settings::ignore_files;
+vector<path>     settings::ignore_files;
 vector<string> settings::header_endings          = { "hpp","hxx","hh","h", "tcc" };
 vector<string> settings::implementation_endings  = { "cpp","cxx","cc","c" };
 string         settings::compiler                = "g++";
 bool           settings::compile                 = false;
-list<string>   settings::include_dirs;
-list<string>   settings::lib_dirs;
-list<string>   settings::libs;
-list<string>   settings::compiler_opts;
-list<string>   settings::pkg_libs;
-map<string,list<pair<char, string>>> settings::conditional_settings;
+vector<string>   settings::include_dirs;
+vector<string>   settings::lib_dirs;
+vector<string>   settings::libs;
+vector<string>   settings::compiler_opts;
+vector<string>   settings::pkg_libs;
+map<string,vector<pair<char, string>>> settings::conditional_settings;
 
 
 void settings::init(int argc, char **argv){
@@ -98,7 +98,7 @@ void settings::parse_file(string filename){
 			continue;
 		}
 		if(line.find("set ")==0){
-			list<pair<char, string>> s;
+			vector<pair<char, string>> s;
 			string name=line.substr(4);
 			name = strip(name);
 			size_t pos=min(name.find(' '),name.find('{'));

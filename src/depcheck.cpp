@@ -9,16 +9,16 @@ using namespace std;
 #include "tools.hpp"
 #include "output.hpp"
 
-list<path> get_includes(path file, set<path>& touched_files){
+vector<path> get_includes(path file, set<path>& touched_files){
 	debug(3,"reading dependencies for „"+file.string()+"“");
 	if( touched_files.count(file) ){
 		debug(4, "\tfile is already known");
-		return list<path>();
+		return vector<path>();
 	}
 	else{
 		touched_files.insert(file);
 	}
-	list<path> includes;
+	vector<path> includes;
 	string line;
 	ifstream filestream(file.c_str());
 	path file_dir=file.parent_path();
@@ -50,7 +50,7 @@ list<path> get_includes(path file, set<path>& touched_files){
 			includes.push_back(include);
 		}
 	}
-	list<path> secondary_includes, tmp;
+	vector<path> secondary_includes, tmp;
 	for(auto i:includes){
 		tmp=get_includes(i, touched_files);
 		secondary_includes.insert(secondary_includes.end()--,
@@ -62,9 +62,9 @@ list<path> get_includes(path file, set<path>& touched_files){
 }
 
 
-list<path> get_deps(path startfile){
+vector<path> get_deps(path startfile){
 	set<path> touched_files;
-	list<path> includes=get_includes(startfile, touched_files);
+	vector<path> includes=get_includes(startfile, touched_files);
 	includes=remove_double(includes);
 	return includes;
 }

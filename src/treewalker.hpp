@@ -1,7 +1,7 @@
 #ifndef treewalker
 #define treewalker
 
-#include <list>
+#include <vector>
 #include <utility>
 #include <string>
 #include <boost/filesystem.hpp>

@@ -45,7 +45,7 @@ pair<string,string> cut_once(string str, string delim){
 
 path clean_path(path p){
 	auto raw = cut( p.string(), "/");
-	list<string> dirs;
+	vector<string> dirs;
 	for(auto dir: raw){
 		if( dir == "." ){
 			continue;
@@ -72,9 +72,8 @@ path clean_path(path p){
 	}
 	else{
 		path returnpath(dirs.front());
-		dirs.pop_front();
-		for(auto x: dirs){
-			returnpath/=path(x);
+		for(auto it = ++(dirs.begin()); it != dirs.end(); ++it){
+			returnpath/=path(*it);
 		}
 		return returnpath;
 	}

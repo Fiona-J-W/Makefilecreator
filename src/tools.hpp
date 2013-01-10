@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include <utility>
-#include <list>
 #include <fstream>
 #include <set>
 #include <boost/filesystem.hpp>
@@ -43,14 +42,14 @@ string strip(string str);
  * @param stream stream that the list will be written to
  */
 template<typename T>
-ostream& operator<<(ostream &stream,list<T> t);
+ostream& operator<<(ostream &stream,vector<T> t);
 
 /**
  * create a list from t that contains only unique members
  * @param t List that will be freed from double-members
  */
 template<typename T>
-list<T> remove_double(list<T> t);
+vector<T> remove_double(vector<T> t);
 
 /**
  * remove unneeded dots
@@ -78,11 +77,11 @@ path simplify_rel_path(path relpath, path startpath);
 //Public because templates are used:
 
 template<typename T>
-ostream& operator<<(ostream &stream,list<T> t){
+ostream& operator<<(ostream &stream,vector<T> t){
 	stream<<"[";
-	for(auto &i:t){
-		stream<<i;
-		if(&i!=&t.back()){
+	for(const auto& x:t){
+		stream<<x;
+		if(&x != &t.back()){
 			stream<<",";
 		}
 		
@@ -93,13 +92,13 @@ ostream& operator<<(ostream &stream,list<T> t){
 
 
 template<typename T>
-list<T> remove_double(list<T> t){
+vector<T> remove_double(vector<T> t){
 	set<T> tmp;
-	for(auto x:t){
+	for(const auto& x:t){
 		tmp.insert(x);
 	}
 	t.clear();
-	for(auto x:tmp){
+	for(const auto& x:tmp){
 		t.push_back(x);
 	}
 	return t;

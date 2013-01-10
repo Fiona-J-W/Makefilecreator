@@ -1,5 +1,5 @@
 #include <iostream>
-#include <list>
+#include <vector>
 #include <string>
 #include <map>
 #include <cstdlib>
@@ -27,7 +27,7 @@ int main(int argc, char **argv){
 	get_code_files();
 	debug(1, "got list of code-files");
 	
-	map<path,list<path>> dependencies;
+	map<path,vector<path>> dependencies;
 	debug(1, "starting to read dependencies");
 	for(auto x : settings::implementation_files){
 		debug(2, "reading dependencies for "+x.string());

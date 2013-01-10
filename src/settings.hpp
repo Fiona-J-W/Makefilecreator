@@ -1,7 +1,7 @@
 #ifndef settings_hpp
 #define settings_hpp
 
-#include <list>
+#include <vector>
 #include <string>
 #include <map>
 using namespace std;
@@ -76,11 +76,11 @@ struct settings{
 	/**
 	 * List of all header-files
 	 */
-	static list<path> header_files;
+	static vector<path> header_files;
 	/**
 	 * List of all code-files
 	 */
-	static list<path> implementation_files;
+	static vector<path> implementation_files;
 	
 	/**
 	 * Target of the project
@@ -94,7 +94,7 @@ struct settings{
 	/**
 	 * root-dirs of the source:
 	 */
-	static list<path> source_dirs;
+	static vector<path> source_dirs;
 	/**
 	 * directory for all the object-files:
 	 */
@@ -102,11 +102,11 @@ struct settings{
 	/**
 	 * Files that will be completly ignored:
 	 */
-	static list<path> ignore_files;
+	static vector<path> ignore_files;
 	/**
 	 * named sets of settings that can be used with one command
 	 */
-	static map<string,list<pair<char, string>>> conditional_settings;
+	static map<string,vector<pair<char, string>>> conditional_settings;
 	
 	/**
 	 * endings of headerfiles
@@ -131,24 +131,24 @@ struct settings{
 	/**
 	 * Directories that contain used header-files
 	 */
-	static list<string> include_dirs;
+	static vector<string> include_dirs;
 	/**
 	 * directories, that contain the libraries
 	 */
-	static list<string> lib_dirs;
+	static vector<string> lib_dirs;
 	/**
 	 * libraries to be linked
 	 */
-	static list<string> libs;
+	static vector<string> libs;
 	/**
 	 * all further compiler-options
 	 */
-	static list<string> compiler_opts;
+	static vector<string> compiler_opts;
 
 	/**
 	 * libs for pkg-config
 	 */
-	static list<string> pkg_libs;
+	static vector<string> pkg_libs;
 };
 
 
