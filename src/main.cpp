@@ -38,8 +38,9 @@ int main(int argc, char **argv){
 	debug(1, "creating makefile");
 	create_makefile(dependencies);
 	if(settings::compile){
-		debug(1, "compiling");
-		system("make");
+		constexpr static int job_count = 4;
+		debugf(1, "compiling with %s jobs", job_count);
+		system(("make -j" + std::to_string(job_count)).c_str());
 	}
 	
 	return 0;

@@ -64,14 +64,14 @@ struct settings{
 	 * Parse the given file as configfile
 	 * @param filename name of the configfile
 	 */
-	static void parse_file(string filename);
+	static void parse_file(const string& filename);
 	
 	/**
 	 * change the state described by opt with val
 	 * @param opt state to be changed
 	 * @param val value used to change the state
 	 */
-	static void set_opt(char opt,string val);
+	static void set_opt(char opt, const string& val);
 	
 	/**
 	 * List of all header-files

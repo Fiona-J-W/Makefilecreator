@@ -34,15 +34,15 @@ map<string,char> FILE_OPTS={
 //Put the static members with some sane defaults here:
 vector<path>     settings::header_files;
 vector<path>     settings::implementation_files;
-string         settings::target                  = "a.out";
-string         settings::output                  = "makefile";
+string           settings::target                  = "a.out";
+string           settings::output                  = "makefile";
 vector<path>     settings::source_dirs;
-path           settings::build_dir               = ".";
+path             settings::build_dir               = ".";
 vector<path>     settings::ignore_files;
-vector<string> settings::header_endings          = { "hpp","hxx","hh","h", "tcc" };
-vector<string> settings::implementation_endings  = { "cpp","cxx","cc","c" };
-string         settings::compiler                = "g++";
-bool           settings::compile                 = false;
+vector<string>   settings::header_endings          = { "hpp","hxx","hh","h", "tcc" };
+vector<string>   settings::implementation_endings  = { "cpp","cxx","cc","c" };
+string           settings::compiler                = "g++";
+bool             settings::compile                 = false;
 vector<string>   settings::include_dirs;
 vector<string>   settings::lib_dirs;
 vector<string>   settings::libs;
@@ -81,7 +81,7 @@ void settings::init(int argc, char **argv){
 }
 
 
-void settings::parse_file(string filename){
+void settings::parse_file(const string& filename){
 	ifstream file(filename.c_str());
 	if(!file.is_open()){
 		error("file "+filename+" cannot be opened");
@@ -128,11 +128,9 @@ void settings::parse_file(string filename){
 		string key=tmp.first;
 		set_opt(FILE_OPTS[key],tmp.second);
 	}
-	
-	file.close();
 }
 
-void settings::set_opt(char opt,string val){
+void settings::set_opt(char opt, const string& val){
 	debug(1, string("set_opt(")+opt+", "+val+")");
 	switch(opt){
 		case 's':
