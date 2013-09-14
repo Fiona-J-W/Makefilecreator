@@ -7,7 +7,7 @@
 
 
 CC =  clang++
-CFLAGS =  -O4 -Wall -Wextra -pedantic -std=c++11 -std=c++11 
+CFLAGS = -DDEBUG -std=c++11 
 CLIBS = -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = ../bin/mfc

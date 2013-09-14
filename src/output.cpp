@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <ctime>
+#include <cassert>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -105,12 +106,17 @@ void print_and_log(const string& msg, bool normal){
 }
 
 string _textf_impl(const string& formatstring,const std::vector<string>& strings){
-	stringstream resultstream;
-	stringstream formatstream(formatstring);
+	assert(!strings.empty());
+	
+	std::ostringstream resultstream;
+	std::istringstream formatstream(formatstring);
 	string tmp;
 	unsigned int unspecified_inserts = 0;
 	while(getline(formatstream, tmp, '%')){
 		resultstream << tmp;
+		if( formatstream.eof() ){
+			break;
+		}
 		switch(formatstream.peek()){
 			case '%': 
 				resultstream << '%'; 
@@ -120,16 +126,16 @@ string _textf_impl(const string& formatstring,const std::vector<string>& strings
 				try{
 					resultstream << strings.at(unspecified_inserts);
 					++unspecified_inserts;
+					formatstream.ignore();
 				}
 				catch(std::out_of_range &e){
 					throw std::invalid_argument("invalid formatstring");
 				}
-				formatstream.ignore();
 				break;
 			default:
 				getline(formatstream, tmp, 's');
 				try{
-					resultstream << strings.at(stoi(tmp)-1);
+					resultstream << strings.at(stoi(tmp));
 				}
 				catch(std::out_of_range &e){
 					throw std::invalid_argument("invalid formatstring");

@@ -128,6 +128,7 @@ int create_makefile(map<path,vector<path>> dependencies){
 		
 		output.close();
 	}
+	debug(3, "outputs written");
 	return 0;
 }
 

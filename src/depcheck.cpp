@@ -24,7 +24,7 @@ vector<path> get_includes(path file, set<path>& touched_files){
 	path file_dir=file.parent_path();
 	while(getline(filestream,line)){
 		line = strip(line);
-		if(line[0]=='#' && strip(line.substr(1)).find("include")==0){
+		if(!line.empty() && line[0]=='#' && strip(line.substr(1)).find("include")==0){
 			line.erase(0,sizeof("#include"));
 			line = strip(line);
 			if(line[0]!='"') continue;
@@ -53,10 +53,10 @@ vector<path> get_includes(path file, set<path>& touched_files){
 	vector<path> secondary_includes, tmp;
 	for(auto i:includes){
 		tmp=get_includes(i, touched_files);
-		secondary_includes.insert(secondary_includes.end()--,
+		secondary_includes.insert(secondary_includes.end(),
 		                          tmp.begin(),tmp.end());
 	}
-	includes.insert(includes.end()--,secondary_includes.begin(),
+	includes.insert(includes.end(),secondary_includes.begin(),
 	                secondary_includes.end());
 	return includes;
 }
