@@ -13,15 +13,15 @@ string replace_ending(path file, string new_ending);
 void write_settings(ofstream &output,path relative_dir, map<path,vector<path>> dependencies){
 	output<<"\n####################\n#Settings:\n\n\n";
 	
-	output<<"CC = "<<settings::compiler<<"\n";
+	output<<"CXX ?= "<<settings::compiler<<"\n";
 	
-	output<<"CFLAGS = ";
+	output<<"FLAGS += ";
 	for(auto opt:settings::compiler_opts){
 		output<<opt<<" ";
 	}
 	output<<"\n";
 	
-	output<<"CLIBS = ";
+	output<<"LIBS += ";
 	for(auto libdir:settings::lib_dirs){
 		output<<"-L"<<libdir<<" ";
 	}
@@ -65,7 +65,7 @@ void write_rules(ofstream &output,path relative_dir){
 	
 	//be nice to ubuntu and put the libs to the end of the commandline m(
 	output<<"$(TARGET) : $(OBJECTS)\n"
-		<<"\t$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(CLIBS)\n"<<endl;
+		<<"\t$(CXX) $(FLAGS) -o $(TARGET) $(OBJECTS) $(LIBS)\n"<<endl;
 	
 	path build_dir = clean_path(relative_dir/settings::build_dir);
 	
@@ -81,7 +81,7 @@ void write_rules(ofstream &output,path relative_dir){
 		       << "'; echo \"created '"<< build_dir.string()
 		       << "'\" ; fi"<<endl;
 	}
-	output<<"\t$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<\n\n";
+	output<<"\t$(CXX) $(FLAGS) $(INCLUDES) -c -o $@ $<\n\n";
 	
 	if( build_dir != path("") ){
 		output<<"clean:\n\trm "<<build_dir.string()<<"/*.o\n\n";
@@ -93,7 +93,8 @@ void write_rules(ofstream &output,path relative_dir){
 	output<<"all: $(TARGET)\n"<<endl;
 }
 
-void write_dependencies(ofstream &output,path relative_dir, map<path,vector<path>> dependencies){
+void write_dependencies(ofstream &output,path relative_dir, map<path,vector<path>> dependencies,
+		const std::string& makefile){
 	output<<"\n####################\n#Dependencies:\n\n"<<endl;
 	
 	path build_dir = clean_path(relative_dir/settings::build_dir);
@@ -104,8 +105,8 @@ void write_dependencies(ofstream &output,path relative_dir, map<path,vector<path
 		for(auto dep:rule.second){
 			output<<clean_path(relative_dir/dep).string()<<" ";
 		}
+		output << makefile << "\n\n";
 		//output<<"\n\t$(CC) $(CFLAGS) $(INCLUDES) -c "<<rule.first.string()<<" -o "<<obj_name<<"\n"<<endl;
-		output<<"\n\n";
 	}
 }
 
@@ -124,7 +125,7 @@ int create_makefile(map<path,vector<path>> dependencies){
 		
 		write_rules(output,relative_path);
 		
-		write_dependencies(output,relative_path,dependencies);
+		write_dependencies(output,relative_path,dependencies, filename);
 		
 		output.close();
 	}

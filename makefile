@@ -6,9 +6,9 @@
 #Settings:
 
 
-CC =  clang++
-CFLAGS =  -O4 -Wall -Wextra -pedantic -std=c++11 -std=c++11 
-CLIBS = -lboost_filesystem -lboost_system 
+CXX ?= g++
+FLAGS += -std=c++11  -Wall -Wextra -pedantic -std=c++11 
+LIBS += -lboost_filesystem -lboost_system 
 INCLUDES = 
 TARGET = bin/mfc
 OBJECTS = \
@@ -28,11 +28,11 @@ OBJECTS = \
 
 
 $(TARGET) : $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS) $(CLIBS)
+	$(CXX) $(FLAGS) -o $(TARGET) $(OBJECTS) $(LIBS)
 
 build/%.o:
 	@if test ! -d 'build'; then mkdir 'build'; echo "created 'build'" ; fi
-	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
+	$(CXX) $(FLAGS) $(INCLUDES) -c -o $@ $<
 
 clean:
 	rm build/*.o
@@ -44,19 +44,19 @@ all: $(TARGET)
 #Dependencies:
 
 
-build/depcheck.o: src/depcheck.cpp src/depcheck.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp 
+build/depcheck.o: src/depcheck.cpp src/depcheck.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp makefile
 
-build/help.o: src/help.cpp src/help.hpp 
+build/help.o: src/help.cpp src/help.hpp makefile
 
-build/main.o: src/main.cpp src/depcheck.hpp src/help.hpp src/mf.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp src/treewalker.hpp 
+build/main.o: src/main.cpp src/depcheck.hpp src/help.hpp src/mf.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp src/treewalker.hpp makefile
 
-build/mf.o: src/mf.cpp src/mf.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp 
+build/mf.o: src/mf.cpp src/mf.hpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp makefile
 
-build/output.o: src/output.cpp src/output.hpp src/output.tcc 
+build/output.o: src/output.cpp src/output.hpp src/output.tcc makefile
 
-build/settings.o: src/settings.cpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp 
+build/settings.o: src/settings.cpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp makefile
 
-build/tools.o: src/tools.cpp src/output.hpp src/output.tcc src/tools.hpp 
+build/tools.o: src/tools.cpp src/output.hpp src/output.tcc src/tools.hpp makefile
 
-build/treewalker.o: src/treewalker.cpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp src/treewalker.hpp 
+build/treewalker.o: src/treewalker.cpp src/output.hpp src/output.tcc src/settings.hpp src/tools.hpp src/treewalker.hpp makefile
 
