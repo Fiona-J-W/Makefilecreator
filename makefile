@@ -7,9 +7,9 @@
 
 
 CXX ?= g++
-FLAGS += -std=c++11  -Wall -Wextra -pedantic -std=c++11 
+FLAGS += -std=c++11 -O0 -D_GLIBCXX_DEBUG -g 
 LIBS += -lboost_filesystem -lboost_system 
-INCLUDES = 
+INCLUDES += 
 TARGET = bin/mfc
 OBJECTS = \
 	build/depcheck.o \

@@ -41,7 +41,7 @@ path             settings::build_dir               = ".";
 vector<path>     settings::ignore_files;
 vector<string>   settings::header_endings          = { "hpp","hxx","hh","h", "tcc" };
 vector<string>   settings::implementation_endings  = { "cpp","cxx","cc","c" };
-string           settings::compiler                = "g++";
+string           settings::compiler;
 bool             settings::compile                 = false;
 vector<string>   settings::include_dirs;
 vector<string>   settings::lib_dirs;

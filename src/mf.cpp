@@ -13,7 +13,12 @@ string replace_ending(path file, string new_ending);
 void write_settings(ofstream &output,path relative_dir, map<path,vector<path>> dependencies){
 	output<<"\n####################\n#Settings:\n\n\n";
 	
-	output<<"CXX ?= "<<settings::compiler<<"\n";
+	if(settings::compiler.empty()) {
+		output<<"CXX ?= g++\n";
+	}
+	else {
+		output<<"CXX = " << settings::compiler<<"\n";
+	}
 	
 	output<<"FLAGS += ";
 	for(auto opt:settings::compiler_opts){
@@ -33,7 +38,7 @@ void write_settings(ofstream &output,path relative_dir, map<path,vector<path>> d
 	}
 	output<<"\n";
 	
-	output<<"INCLUDES = ";
+	output<<"INCLUDES += ";
 	for(auto include:settings::include_dirs){
 		output<<"-I"<<include<<" ";
 	}
@@ -44,7 +49,7 @@ void write_settings(ofstream &output,path relative_dir, map<path,vector<path>> d
 	
 	output<<"TARGET = "<<(clean_path(relative_dir/settings::target)).string()<<"\n";
 	
-	output<<"OBJECTS =";//<<settings::includes<<endl;
+	output<<"OBJECTS =";
 	if( dependencies.size() <= 3){
 		for(auto object:dependencies){
 			output<<" "<<replace_ending(clean_path(relative_dir/settings::build_dir/(object.first.filename())),"o");
@@ -106,7 +111,6 @@ void write_dependencies(ofstream &output,path relative_dir, map<path,vector<path
 			output<<clean_path(relative_dir/dep).string()<<" ";
 		}
 		output << makefile << "\n\n";
-		//output<<"\n\t$(CC) $(CFLAGS) $(INCLUDES) -c "<<rule.first.string()<<" -o "<<obj_name<<"\n"<<endl;
 	}
 }
 
