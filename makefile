@@ -7,7 +7,7 @@
 
 
 CXX ?= g++
-FLAGS += -std=c++11 -O0 -D_GLIBCXX_DEBUG -g 
+FLAGS +=  -Wall -Wextra -pedantic -std=c++11 
 LIBS += -lboost_filesystem -lboost_system 
 INCLUDES += 
 TARGET = bin/mfc

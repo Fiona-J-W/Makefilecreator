@@ -129,7 +129,7 @@ int create_makefile(map<path,vector<path>> dependencies){
 		
 		write_rules(output,relative_path);
 		
-		write_dependencies(output,relative_path,dependencies, filename);
+		write_dependencies(output,relative_path,dependencies, path(filename).filename().string());
 		
 		output.close();
 	}
