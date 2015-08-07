@@ -69,11 +69,11 @@ void settings::init(int argc, char **argv){
 	}
 	
 	//parse commandline-opts:
-	int opt;
+	auto opt = 0;
 	while ((opt = getopt_long(argc, argv, "s:b:t:o:u:w:H:e:E:c:d:v:l:L:I:O:Cf:",
 	        OPTIONS,NULL)) != -1
 	){
-		set_opt(opt,optarg?optarg:"");
+		set_opt(static_cast<char>(opt),optarg?optarg:"");
 	}
 	if( settings::source_dirs.size() == 0 ){
 		settings::source_dirs.push_back(path("."));

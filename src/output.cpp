@@ -135,7 +135,7 @@ string _textf_impl(const string& formatstring,const std::vector<string>& strings
 			default:
 				getline(formatstream, tmp, 's');
 				try{
-					resultstream << strings.at(stoi(tmp));
+					resultstream << strings.at(static_cast<std::size_t>(stoull(tmp)));
 				}
 				catch(std::out_of_range &e){
 					throw std::invalid_argument("invalid formatstring");
